@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import BiomaMark from '../components/BiomaMark.astro';
+import SunHorizonPrototype from '../components/SunHorizonPrototype.astro';
 import { whatsappHref, withBase } from '../lib/site';
 
 import entrance from '../assets/elite18/entrance.jpg';
@@ -36,11 +37,10 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
         </a>
       </div>
     </div>
+    <!-- PROTOTYPE: animated sun variants (?variant=A..E). Replaces the static
+         horizon dome until a winner is picked, then gets folded in properly. -->
     <div class="hero-horizon" aria-hidden="true">
-      <svg viewBox="0 0 1200 110" preserveAspectRatio="xMidYMax meet">
-        <path class="horizon-dome" d="M520 92 A80 80 0 0 1 680 92 Z" fill="var(--laterite)"></path>
-        <line x1="0" y1="100" x2="1200" y2="100" stroke="var(--ink)" stroke-width="2.5"></line>
-      </svg>
+      <SunHorizonPrototype />
     </div>
   </section>
 
