@@ -105,6 +105,9 @@ button {
   text-transform: uppercase;
   line-height: 1.08;
   text-wrap: balance;
+  /* Italiana ships only at 400 and reads hairline-thin at display sizes;
+     a scaled text-stroke gives it real weight. */
+  -webkit-text-stroke: max(0.5px, 0.022em) currentColor;
 }
 
 .display-xl {

@@ -20,8 +20,8 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
         Twenty&#8209;five minutes past the city, the soil turns red.
       </h1>
       <p class="body-serif hero-sub reveal">
-        Bioma holds land the way a ledger holds a record — plainly, permanently. We build
-        <em>serviced farm plot communities</em> in the G.O.&nbsp;111 countryside of Hyderabad,
+        Bioma holds land the way a ledger holds a record — plainly, permanently. We
+        build <em>serviced farm plot communities</em> in the G.O.&nbsp;111 countryside of Hyderabad,
         where resident crews farm every parcel and the harvest is yours.
       </p>
       <div class="hero-actions reveal">
@@ -175,8 +175,9 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
           <h2 class="display display-lg">Built by people who stay.</h2>
           <p class="body-serif people-p">
             Bioma is a Hyderabad company founded by <strong>Ramesh Reddy Meda</strong> and
-            <strong>Rajeshwar Reddy Buyyani</strong> — builders with real estate credibility
-            earned through their ventures <em>E&#8209;Infra</em> and <em>MoonGlade</em>.
+            <strong>Rajeshwar Reddy Buyyani</strong> — builders whose real estate credibility
+            spans a dozen ventures, from <em>Moonglade</em> and <em>One Downtown</em>
+            to <em>Riveredge Villas</em> and <em>La Paloma</em>.
           </p>
           <p class="body-serif people-p">
             Elite 18 and Anthara are Bioma's first communities, and they are built the way a
@@ -191,7 +192,10 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
             <p class="people-name">Rajeshwar Reddy Buyyani</p>
             <hr class="rule-soft people-rule" />
             <p class="mono-label">Ventures</p>
-            <p class="mono-data">E-INFRA · MOONGLADE</p>
+            <p class="mono-data people-ventures">
+              SKYVEN · MOONGLADE · ONE DOWNTOWN · ELEGANT NIVASA · AUTUMN · LA CASA · RIVEREDGE
+              VILLAS · RIVERA · FLOATILLA · SKYILA · APILA · LA PALOMA
+            </p>
           </div>
         </div>
       </div>
@@ -321,6 +325,7 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
 
   .premise-h {
     font-family: var(--font-display);
+    -webkit-text-stroke: max(0.4px, 0.02em) currentColor;
     font-size: 1.375rem;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -346,6 +351,19 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
     width: 100%;
     height: clamp(280px, 55vw, 560px);
     object-fit: cover;
+  }
+
+  /* On wide screens the render shows uncropped, framed like a ledger figure. */
+  @media (min-width: 900px) {
+    .band {
+      width: min(100% - 2 * var(--gutter), var(--container));
+      margin-inline: auto;
+      border: var(--hairline);
+    }
+
+    .band :global(img) {
+      height: auto;
+    }
   }
 
   .band-caption {
@@ -509,6 +527,7 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
 
   .people-name {
     font-family: var(--font-display);
+    -webkit-text-stroke: max(0.4px, 0.02em) currentColor;
     font-size: 1.25rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -522,6 +541,11 @@ import antharaLockup from '../assets/anthara/lockup-reverse.png';
   .people-card .mono-data {
     margin-top: 0.5rem;
     color: var(--laterite);
+  }
+
+  .people-ventures {
+    line-height: 2;
+    letter-spacing: 0.1em;
   }
 
   /* ---------- G.O. 111 ---------- */
