@@ -1,0 +1,158 @@
+---
+import BiomaMark from './BiomaMark.astro';
+import { SITE, whatsappHref, withBase } from '../lib/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-cta">
+      <p class="mono-label footer-label">Enquiries</p>
+      <p class="footer-headline display display-lg">Talk to us about land.</p>
+      <div class="footer-actions">
+        <a
+          class="btn btn-primary"
+          href={whatsappHref('Hello Bioma — I would like to know more about your projects.')}
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp Enquiry
+        </a>
+        <a class="btn btn-ghost btn-ghost--paper" href={SITE.phoneHref}>
+          Call {SITE.phoneDisplay}
+        </a>
+      </div>
+    </div>
+
+    <hr class="footer-rule" />
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-mark">
+          <BiomaMark size={20} dome="var(--terracotta)" line="var(--paper)" />
+          <span class="footer-wordmark">Bioma</span>
+        </span>
+        <p class="footer-line">Serviced farm plot communities · {SITE.location}</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href={withBase('/')}>Bioma</a></li>
+          <li><a href={withBase('/elite18')}>Elite 18</a></li>
+          <li><a href={withBase('/anthara')}>Anthara</a></li>
+          <li><a href={withBase('/disclaimer')}>Disclaimer</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="footer-legal">
+      All imagery is an artistic impression. Farm house construction is optional and subject to
+      G.O. 111 norms. Nothing on this site is an offer or approved-layout claim —
+      <a href={withBase('/disclaimer')}>read the full disclaimer</a>.
+    </p>
+    <p class="footer-copy mono-data">© {year} BIOMA · YOU + 18 FAMILIES LIKE YOU</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: clamp(3.5rem, 9vw, 6.5rem) 2rem;
+  }
+
+  .footer-label {
+    color: var(--terracotta);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-headline {
+    max-width: 14em;
+    margin-bottom: 2rem;
+  }
+
+  .footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-rule {
+    border: 0;
+    border-top: 1px solid rgba(243, 237, 226, 0.22);
+    margin-block: clamp(2.5rem, 7vw, 4.5rem) 2rem;
+  }
+
+  .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .footer-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .footer-wordmark {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .footer-line {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: rgba(243, 237, 226, 0.65);
+    margin-top: 0.6rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-links a {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(243, 237, 226, 0.8);
+  }
+
+  .footer-links a:hover {
+    color: var(--paper);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: var(--terracotta);
+  }
+
+  .footer-legal {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    line-height: 1.7;
+    color: rgba(243, 237, 226, 0.55);
+    max-width: 46em;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-legal a {
+    color: inherit;
+  }
+
+  .footer-copy {
+    color: rgba(243, 237, 226, 0.45);
+    letter-spacing: 0.14em;
+  }
+</style>

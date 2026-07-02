@@ -1,0 +1,1003 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { SITE, whatsappHref } from '../lib/site';
+
+import entrance from '../assets/elite18/entrance.jpg';
+import entranceGate from '../assets/elite18/entrance-gate.jpg';
+import masterplan from '../assets/elite18/masterplan.jpg';
+import gardenResidence from '../assets/elite18/garden-residence.jpg';
+import nightFruit from '../assets/elite18/night-fruit-garden.jpg';
+import nightKitchen from '../assets/elite18/night-kitchen-garden.jpg';
+import nightVegetable from '../assets/elite18/night-vegetable-garden.jpg';
+import pool from '../assets/elite18/pool.jpg';
+import pool2 from '../assets/elite18/pool-2.jpg';
+import pergola from '../assets/elite18/pergola.jpg';
+import pickleball from '../assets/elite18/pickleball.jpg';
+import partyCounter from '../assets/elite18/party-counter.jpg';
+import sunkenSeat from '../assets/elite18/sunken-seat.jpg';
+import house from '../assets/elite18/house.jpg';
+import clubhouse from '../assets/elite18/clubhouse.jpg';
+import fpEastGround from '../assets/elite18/fp-east-ground.jpg';
+import fpEastFirst from '../assets/elite18/fp-east-first.jpg';
+import fpWestGround from '../assets/elite18/fp-west-ground.jpg';
+import fpWestFirst from '../assets/elite18/fp-west-first.jpg';
+
+const whatsapp = whatsappHref(
+  'Hello Bioma — I would like to know more about Elite 18 at Yelkaguda.'
+);
+const mapsUrl = 'https://maps.app.goo.gl/yPVajXkQHSJpfYz38';
+
+const distances = [
+  { place: 'Moinabad town', detail: 'Groceries, clinics, daily needs', time: '05 MIN' },
+  { place: 'Chilkur Balaji Temple', detail: 'The revered "Visa Balaji"', time: '15 MIN' },
+  { place: 'Appa Junction · ORR Exit 18', detail: 'Signal-free into the city', time: '15 MIN' },
+  { place: 'Kokapet Neopolis', detail: "Hyderabad's newest tech engine", time: '25 MIN' },
+  { place: 'Financial District · Gachibowli', detail: 'The business power centre', time: '35 MIN' },
+  { place: 'RGI Airport', detail: 'Via ORR, stress-free', time: '40 MIN' },
+];
+
+const landUse = [
+  { label: 'Plotted area', pct: 66.67, detail: '18,593 sq yd · 3.84 acres' },
+  { label: "30' wide roads", pct: 20.48, detail: '5,711 sq yd · 1.18 acres' },
+  { label: 'Open / common', pct: 12.85, detail: '3,626 sq yd · 0.75 acres' },
+];
+
+const amenities = [
+  {
+    head: 'Mind',
+    sub: 'Clarity, focus, growth',
+    items: ['Library', 'Meditation zone', 'Quiet reading corners'],
+  },
+  {
+    head: 'Heart',
+    sub: 'Connection, celebration, community',
+    items: ['Clubhouse', 'Party room & banquet hall', 'Party lawn', 'Guest suites', 'Cafeteria'],
+  },
+  {
+    head: 'Health',
+    sub: 'Strength, energy, nourishment',
+    items: ['Swimming pool & kids pool', 'Reflexology pathway', 'Indoor sports', 'Pickleball court', 'Organic fruits & vegetables'],
+  },
+  {
+    head: 'Soul',
+    sub: 'Peace, nature, belonging',
+    items: ['Flower garden', 'Fruit garden', 'Green services & open spaces'],
+  },
+];
+
+const gallery = [
+  { img: pool, alt: 'The swimming pool at dusk', cap: 'THE POOL' },
+  { img: pergola, alt: 'Pergola seating under trees', cap: 'THE PERGOLA' },
+  { img: pickleball, alt: 'Pickleball court', cap: 'PICKLEBALL' },
+  { img: sunkenSeat, alt: 'Sunken fire-pit seating', cap: 'SUNKEN SEATING' },
+  { img: partyCounter, alt: 'Open-air party counter', cap: 'PARTY COUNTER' },
+  { img: clubhouse, alt: 'The clubhouse', cap: 'THE CLUBHOUSE' },
+  { img: house, alt: 'A farm house among the plots', cap: 'THE FARM HOUSE' },
+  { img: pool2, alt: 'Poolside view', cap: 'POOLSIDE' },
+  { img: entranceGate, alt: 'The entrance gate', cap: 'THE GATE' },
+];
+
+const specs = [
+  {
+    head: 'Structure',
+    body: 'RCC framed structure designed for seismic & wind loads · 9" thick external walls · 4.5" internal walls · two layers of cement plaster.',
+  },
+  {
+    head: 'Flooring',
+    body: 'Designer Kota tiles or GVT 800×800 in living areas, kitchen, bedrooms & home theater · premium vitrified tiles in bathrooms up to 8 ft.',
+  },
+  {
+    head: 'Doors & windows',
+    body: '8 ft teak wood frames with veneered shutters throughout · French doors & windows in aluminium with tinted float glass and mesh.',
+  },
+  {
+    head: 'Kitchen & utility',
+    body: 'Provision for modular kitchen, water purifier, chimney & softener · utility points for washing machine and dishwasher.',
+  },
+  {
+    head: 'Bathrooms',
+    body: 'Vanity wash basins · concealed-flush EWCs (Duravit/Kohler or equivalent) · single-lever wall mixers (Grohe/Kohler or equivalent).',
+  },
+  {
+    head: 'Electrical',
+    body: 'Concealed Finolex/Polycab copper wiring · AC points in all rooms · 3-phase supply with individual meter boards · Legrand-or-equivalent modular switches.',
+  },
+  {
+    head: 'Finishes',
+    body: 'External texture finish with exterior emulsion · internal smooth putty with premium acrylic emulsion · SS / glass railings.',
+  },
+];
+---
+
+<Base
+  title="Elite 18 — Serviced Farm Plots at Yelkaguda, Moinabad | Bioma"
+  description="Solitude living across six acres at Yelkaguda, Moinabad — 19 serviced farm plots, 682–1,246 sq yd, farmed year-round by resident crews. Just you and 18 families like you."
+>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <Image
+      src={entrance}
+      alt="Elite 18 entrance avenue lined with trees — artistic impression"
+      widths={[640, 1080, 1600, 2560]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="hero-img"
+    />
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="mono-label hero-topline reveal">
+        Bioma · Project 01 &ensp;·&ensp; Yelkaguda, Moinabad
+      </p>
+      <h1 class="display hero-title reveal">Solitude Living</h1>
+      <p class="hero-sub reveal">
+        The luxury few talk about — six acres of breathing space, and it's just
+        <em>you + 18 families</em> like you.
+      </p>
+      <div class="hero-actions reveal">
+        <a href={whatsapp} class="btn btn-primary" target="_blank" rel="noopener">
+          WhatsApp Enquiry
+        </a>
+        <a href={SITE.phoneHref} class="btn btn-ghost btn-ghost--paper">
+          Call {SITE.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DATA STRIP ============ -->
+  <section class="strip" aria-label="Elite 18 at a glance">
+    <div class="container strip-row">
+      <span class="mono-data">19 PLOTS</span>
+      <span class="mono-data">682–1,246 SQ YD</span>
+      <span class="mono-data">5.77 ACRES</span>
+      <span class="mono-data">G.O. 111 ZONE</span>
+      <span class="mono-data">SERVICED FARM PLOTS</span>
+    </div>
+  </section>
+
+  <!-- ============ THE STORY ============ -->
+  <section class="section">
+    <div class="container story">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The idea</span>
+        <span class="mono-label">E18 / 01</span>
+      </div>
+      <div class="story-body reveal">
+        <p class="story-lede">
+          Do you remember that old painting? The one we drew as a child — a small house with
+          trees, flowers, a sunrise, clouds and a cycle.
+        </p>
+        <p class="body-serif story-p">
+          It's been years, but that was our first home, drawn with our little imagination: a
+          small house surrounded by nature and nature only. At Elite 18 you can live that
+          childhood dream — across six acres, with the same values, the same hustle, and most
+          importantly, the personal <em>me time</em> to make your vision a reality.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section class="section section--raised">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The location</span>
+        <span class="mono-label">Near everything · Away from everything</span>
+      </div>
+      <h2 class="display display-lg loc-title reveal">The location of breathing space.</h2>
+      <div class="loc-table reveal" role="table" aria-label="Distances from Elite 18">
+        {
+          distances.map((d) => (
+            <div class="loc-row" role="row">
+              <span class="loc-place" role="cell">{d.place}</span>
+              <span class="loc-detail" role="cell">{d.detail}</span>
+              <span class="loc-time mono-data" role="cell">{d.time}</span>
+            </div>
+          ))
+        }
+      </div>
+      <div class="loc-actions reveal">
+        <a href={mapsUrl} class="btn btn-ghost" target="_blank" rel="noopener">
+          Open in Google Maps
+        </a>
+        <p class="caption-sans loc-note">
+          In the Moinabad–Shankarpally belt — Hyderabad's planned low-density green zone, near
+          the upcoming Regional Ring Road.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE LAND ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The land</span>
+        <span class="mono-label">27,930 sq yd · 5.77 acres</span>
+      </div>
+      <h2 class="display display-lg land-title reveal">
+        Formed to rise. Designed to return.
+      </h2>
+      <div class="land-grid">
+        <div class="land-bars reveal">
+          {
+            landUse.map((l) => (
+              <div class="land-item">
+                <div class="land-item-head">
+                  <span class="land-pct">{l.pct}%</span>
+                  <div>
+                    <p class="land-label">{l.label}</p>
+                    <p class="mono-data land-detail">{l.detail}</p>
+                  </div>
+                </div>
+                <div class="land-track">
+                  <div class="land-fill" style={`width:${l.pct}%`}></div>
+                </div>
+              </div>
+            ))
+          }
+          <p class="caption-sans land-note">
+            Registered extent per plot additionally includes an undivided share of the common
+            area — clubhouse, roads, guest suites and service quarters.
+          </p>
+        </div>
+        <figure class="land-plan reveal">
+          <Image
+            src={masterplan}
+            alt="Elite 18 masterplan — 19 plots along 30-foot-wide internal roads"
+            widths={[640, 1080, 1600, 2127]}
+            sizes="(min-width: 900px) 48vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption class="caption-sans">
+            The masterplan — 19 exclusive plots, 682 to 1,246 sq yd. For representation only.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE GARDENS / SERVICED ============ -->
+  <section class="gardens">
+    <div class="container">
+      <div class="ledger-head ledger-head--paper reveal">
+        <span class="mono-label mono-label--paper">The serviced farm</span>
+        <span class="mono-label mono-label--paper">Tended daily</span>
+      </div>
+      <h2 class="display display-lg gardens-title reveal">
+        Taste the seasons, grown within your own garden.
+      </h2>
+      <p class="body-serif gardens-p reveal">
+        Every plot carries fruit, vegetable and kitchen gardens, cultivated by resident crews
+        who live on site in the community's service quarters. Your maintenance fee keeps the
+        farm alive through the week — you arrive to the harvest, not the labour.
+      </p>
+      <div class="gardens-grid">
+        <figure class="gardens-item reveal">
+          <Image src={nightFruit} alt="The fruit garden by night — artistic impression" widths={[480, 800, 1280]} sizes="(min-width: 760px) 33vw, 100vw" loading="lazy" />
+          <figcaption class="mono-data gardens-cap">THE FRUIT GARDEN</figcaption>
+        </figure>
+        <figure class="gardens-item reveal">
+          <Image src={nightVegetable} alt="The vegetable garden by night — artistic impression" widths={[480, 800, 1280]} sizes="(min-width: 760px) 33vw, 100vw" loading="lazy" />
+          <figcaption class="mono-data gardens-cap">THE VEGETABLE GARDEN</figcaption>
+        </figure>
+        <figure class="gardens-item reveal">
+          <Image src={nightKitchen} alt="The kitchen garden by night — artistic impression" widths={[480, 800, 1280]} sizes="(min-width: 760px) 33vw, 100vw" loading="lazy" />
+          <figcaption class="mono-data gardens-cap">THE KITCHEN GARDEN</figcaption>
+        </figure>
+      </div>
+      <p class="mono-data gardens-tagline reveal">FROM TREE TO TABLE — THE LUXURY OF GROWING YOUR OWN</p>
+    </div>
+  </section>
+
+  <!-- ============ AMENITIES ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">Solitude amenities</span>
+        <span class="mono-label">Mind · Heart · Health · Soul</span>
+      </div>
+      <h2 class="display display-lg amen-title reveal">
+        A community designed for the mind, body, heart &amp; soul.
+      </h2>
+      <div class="amen-grid">
+        {
+          amenities.map((a) => (
+            <div class="amen-col reveal">
+              <h3 class="amen-h display">{a.head}</h3>
+              <p class="amen-sub">{a.sub}</p>
+              <ul class="amen-list">
+                {a.items.map((i) => (
+                  <li>{i}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section section--raised">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The grounds</span>
+        <span class="mono-label">Artistic impressions</span>
+      </div>
+      <div class="gallery">
+        {
+          gallery.map((g) => (
+            <figure class="gallery-item reveal">
+              <Image
+                src={g.img}
+                alt={`${g.alt} — artistic impression`}
+                widths={[480, 800, 1280]}
+                sizes="(min-width: 760px) 33vw, (min-width: 520px) 50vw, 100vw"
+                loading="lazy"
+              />
+              <figcaption class="mono-data gallery-cap">{g.cap}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE FARM HOUSE ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The farm house</span>
+        <span class="mono-label">Optional · within G.O. 111 norms</span>
+      </div>
+      <h2 class="display display-lg fh-title reveal">Build it, or leave the land open.</h2>
+      <p class="body-serif fh-p reveal">
+        A plot at Elite 18 can stay pure farmland. If you choose to build, two farm house
+        designs are proposed — each within the tenth-of-the-plot footprint that G.O.&nbsp;111
+        allows, so the garden always outweighs the house.
+      </p>
+
+      <div class="fh-variant reveal">
+        <div class="fh-head">
+          <h3 class="display display-md">East facing</h3>
+          <p class="mono-data fh-data">GF 1,330 SFT · FF 1,600 SFT · TOTAL 2,930 SFT</p>
+        </div>
+        <div class="fh-plans">
+          <figure>
+            <Image src={fpEastGround} alt="East-facing farm house — 3D ground floor plan" widths={[480, 800, 1600]} sizes="(min-width: 760px) 48vw, 100vw" loading="lazy" />
+            <figcaption class="caption-sans">Ground floor — bedroom, living, dining, kitchen with breakfast counter, pooja &amp; utility.</figcaption>
+          </figure>
+          <figure>
+            <Image src={fpEastFirst} alt="East-facing farm house — 3D first floor plan" widths={[480, 800, 1600]} sizes="(min-width: 760px) 48vw, 100vw" loading="lazy" />
+            <figcaption class="caption-sans">First floor — master bedroom with walk-in closet, bedroom 2, family lounge, home theater.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="fh-variant reveal">
+        <div class="fh-head">
+          <h3 class="display display-md">West facing</h3>
+          <p class="mono-data fh-data">GF 1,410 SFT · FF 1,687 SFT · TOTAL 3,097 SFT</p>
+        </div>
+        <div class="fh-plans">
+          <figure>
+            <Image src={fpWestGround} alt="West-facing farm house — 3D ground floor plan" widths={[480, 800, 1600]} sizes="(min-width: 760px) 48vw, 100vw" loading="lazy" />
+            <figcaption class="caption-sans">Ground floor plan.</figcaption>
+          </figure>
+          <figure>
+            <Image src={fpWestFirst} alt="West-facing farm house — 3D first floor plan" widths={[480, 800, 1600]} sizes="(min-width: 760px) 48vw, 100vw" loading="lazy" />
+            <figcaption class="caption-sans">First floor plan.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <figure class="fh-hero reveal">
+        <Image
+          src={gardenResidence}
+          alt="The Garden Residence — proposed farm house by night, artistic impression"
+          widths={[640, 1080, 1600, 2127]}
+          sizes="100vw"
+          loading="lazy"
+        />
+        <figcaption class="caption-sans">
+          The Garden Residence — proposed design, artistic impression.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ SPECIFICATIONS ============ -->
+  <section class="section section--raised">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">Specifications</span>
+        <span class="mono-label">Proposed farm house</span>
+      </div>
+      <div class="specs">
+        {
+          specs.map((s) => (
+            <div class="spec-row reveal">
+              <h3 class="spec-h mono-label">{s.head}</h3>
+              <p class="spec-p">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing">
+    <div class="container closing-inner">
+      <p class="mono-label closing-label reveal">Elite 18 · Yelkaguda</p>
+      <h2 class="display display-lg closing-title reveal">Walk the land.</h2>
+      <p class="body-serif closing-p reveal">
+        The red earth reads better in person. Message us on WhatsApp and we'll arrange a site
+        visit.
+      </p>
+      <div class="closing-actions reveal">
+        <a href={whatsapp} class="btn btn-primary" target="_blank" rel="noopener">
+          WhatsApp Enquiry
+        </a>
+        <a href={SITE.phoneHref} class="btn btn-ghost">Call {SITE.phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: min(92svh, 860px);
+    display: flex;
+    align-items: flex-end;
+    color: var(--paper);
+    overflow: hidden;
+  }
+
+  .hero :global(.hero-img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(33, 27, 22, 0.82) 0%,
+      rgba(33, 27, 22, 0.32) 45%,
+      rgba(33, 27, 22, 0.18) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    padding-block: clamp(3rem, 9vw, 5.5rem);
+  }
+
+  .hero-topline {
+    color: var(--terracotta);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.75rem, 2rem + 7vw, 7rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: clamp(1.0625rem, 1rem + 0.6vw, 1.375rem);
+    line-height: 1.55;
+    max-width: 30em;
+    margin-bottom: 2rem;
+    color: rgba(243, 237, 226, 0.92);
+  }
+
+  .hero-sub em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* ---------- Strip ---------- */
+  .strip {
+    border-bottom: var(--hairline);
+    background: var(--paper-raised);
+  }
+
+  .strip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 2rem;
+    justify-content: space-between;
+    padding-block: 0.9rem;
+  }
+
+  .strip-row .mono-data {
+    letter-spacing: 0.14em;
+    font-size: 0.625rem;
+    color: var(--stone);
+  }
+
+  .section--raised {
+    background: var(--paper-raised);
+    border-block: var(--hairline-soft);
+  }
+
+  /* ---------- Story ---------- */
+  .story-lede {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: clamp(1.375rem, 1.1rem + 1.8vw, 2.125rem);
+    line-height: 1.45;
+    max-width: 24em;
+    margin-bottom: 1.5rem;
+    text-wrap: pretty;
+  }
+
+  .story-p {
+    max-width: 40em;
+  }
+
+  /* ---------- Location ---------- */
+  .loc-title {
+    max-width: 12em;
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .loc-table {
+    border-top: var(--hairline);
+  }
+
+  .loc-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 1rem;
+    padding-block: 0.95rem;
+    border-bottom: var(--hairline-soft);
+    align-items: baseline;
+  }
+
+  @media (min-width: 760px) {
+    .loc-row {
+      grid-template-columns: 1.2fr 1.6fr auto;
+    }
+  }
+
+  .loc-place {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .loc-detail {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--stone);
+    grid-column: 1;
+  }
+
+  @media (min-width: 760px) {
+    .loc-detail {
+      grid-column: auto;
+    }
+  }
+
+  .loc-time {
+    grid-row: 1;
+    grid-column: 2;
+    color: var(--laterite);
+    letter-spacing: 0.12em;
+  }
+
+  @media (min-width: 760px) {
+    .loc-time {
+      grid-row: auto;
+      grid-column: auto;
+    }
+  }
+
+  .loc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1.75rem;
+  }
+
+  .loc-note {
+    max-width: 30em;
+  }
+
+  /* ---------- Land ---------- */
+  .land-title {
+    max-width: 12em;
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .land-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .land-grid {
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+  }
+
+  .land-item {
+    margin-bottom: 1.75rem;
+  }
+
+  .land-item-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .land-pct {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 1.4rem + 2vw, 2.5rem);
+    letter-spacing: 0.02em;
+    min-width: 3.4em;
+  }
+
+  .land-label {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+  }
+
+  .land-detail {
+    color: var(--stone);
+    margin-top: 0.15rem;
+  }
+
+  .land-track {
+    height: 6px;
+    background: rgba(33, 27, 22, 0.1);
+  }
+
+  .land-fill {
+    height: 100%;
+    background: var(--laterite);
+  }
+
+  .land-item:nth-child(2) .land-fill {
+    background: var(--field);
+  }
+
+  .land-item:nth-child(3) .land-fill {
+    background: var(--terracotta);
+  }
+
+  .land-note {
+    max-width: 34em;
+    margin-top: 0.5rem;
+  }
+
+  .land-plan {
+    border: var(--hairline);
+  }
+
+  .land-plan :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .land-plan figcaption {
+    padding: 0.75rem 1rem;
+    border-top: var(--hairline-soft);
+  }
+
+  /* ---------- Gardens ---------- */
+  .gardens {
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: var(--space-section);
+  }
+
+  .ledger-head--paper {
+    border-top-color: rgba(243, 237, 226, 0.35);
+  }
+
+  .mono-label--paper {
+    color: rgba(243, 237, 226, 0.6);
+  }
+
+  .gardens-title {
+    max-width: 14em;
+    margin-bottom: 1.5rem;
+  }
+
+  .gardens-p {
+    color: rgba(243, 237, 226, 0.78);
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .gardens-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 760px) {
+    .gardens-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .gardens-item :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .gardens-cap {
+    display: block;
+    margin-top: 0.6rem;
+    color: var(--terracotta);
+    letter-spacing: 0.16em;
+    font-size: 0.5625rem;
+  }
+
+  .gardens-tagline {
+    display: block;
+    margin-top: clamp(2rem, 5vw, 3rem);
+    color: rgba(243, 237, 226, 0.55);
+    letter-spacing: 0.2em;
+    font-size: 0.625rem;
+  }
+
+  /* ---------- Amenities ---------- */
+  .amen-title {
+    max-width: 15em;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .amen-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 560px) {
+    .amen-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 980px) {
+    .amen-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .amen-col {
+    border-top: var(--hairline-soft);
+    padding-top: 1.1rem;
+  }
+
+  .amen-h {
+    font-size: 1.5rem;
+    color: var(--laterite);
+    margin-bottom: 0.35rem;
+  }
+
+  .amen-sub {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 0.875rem;
+    color: var(--stone);
+    margin-bottom: 1rem;
+  }
+
+  .amen-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .amen-list li {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    padding-block: 0.45rem;
+    border-bottom: 1px solid rgba(33, 27, 22, 0.1);
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 520px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .gallery-item :global(img) {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  .gallery-cap {
+    display: block;
+    margin-top: 0.55rem;
+    letter-spacing: 0.16em;
+    font-size: 0.5625rem;
+    color: var(--stone);
+  }
+
+  /* ---------- Farm house ---------- */
+  .fh-title {
+    max-width: 13em;
+    margin-bottom: 1.5rem;
+  }
+
+  .fh-p {
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .fh-variant {
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .fh-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    border-top: var(--hairline);
+    padding-top: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .fh-data {
+    color: var(--laterite);
+    letter-spacing: 0.1em;
+  }
+
+  .fh-plans {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 760px) {
+    .fh-plans {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .fh-plans figure {
+    border: var(--hairline-soft);
+    background: #fff;
+  }
+
+  .fh-plans :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .fh-plans figcaption {
+    padding: 0.7rem 0.9rem;
+    border-top: var(--hairline-soft);
+  }
+
+  .fh-hero {
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .fh-hero :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .fh-hero figcaption {
+    margin-top: 0.6rem;
+  }
+
+  /* ---------- Specs ---------- */
+  .specs {
+    display: grid;
+    gap: 0;
+  }
+
+  .spec-row {
+    display: grid;
+    gap: 0.4rem 2rem;
+    padding-block: 1.1rem;
+    border-bottom: var(--hairline-soft);
+  }
+
+  @media (min-width: 760px) {
+    .spec-row {
+      grid-template-columns: 200px 1fr;
+      align-items: baseline;
+    }
+  }
+
+  .spec-h {
+    color: var(--laterite);
+  }
+
+  .spec-p {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 52em;
+  }
+
+  /* ---------- Closing ---------- */
+  .closing {
+    background: var(--laterite);
+    color: var(--paper);
+    padding-block: clamp(4rem, 10vw, 7rem);
+  }
+
+  .closing-label {
+    color: rgba(243, 237, 226, 0.7);
+    margin-bottom: 1.25rem;
+  }
+
+  .closing-title {
+    margin-bottom: 1.25rem;
+  }
+
+  .closing-p {
+    color: rgba(243, 237, 226, 0.85);
+    margin-bottom: 2rem;
+  }
+
+  .closing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .closing .btn-primary {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .closing .btn-primary:hover {
+    background: #14100c;
+    border-color: #14100c;
+  }
+
+  .closing .btn-ghost {
+    color: var(--paper);
+    border-color: rgba(243, 237, 226, 0.6);
+  }
+
+  .closing .btn-ghost:hover {
+    background: rgba(243, 237, 226, 0.1);
+  }
+</style>

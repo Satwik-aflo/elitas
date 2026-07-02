@@ -1,0 +1,164 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { SITE, whatsappHref, withBase } from '../lib/site';
+
+import lockup from '../assets/anthara/lockup-reverse.png';
+
+const whatsapp = whatsappHref(
+  'Hello Bioma — I would like early details about Anthara when they are ready.'
+);
+---
+
+<Base
+  title="Anthara — Coming Soon | Bioma"
+  description="Anthara, Bioma's next serviced farm plot community in the G.O. 111 countryside of Hyderabad. Coming soon — register early interest."
+  theme="navy"
+>
+  <section class="teaser">
+    <div class="container teaser-inner">
+      <p class="mono-label teaser-topline reveal">Bioma · Project 02</p>
+
+      <div class="teaser-lockup reveal">
+        <Image
+          src={lockup}
+          alt="Anthara — radiating sun mark above the wordmark"
+          widths={[480, 800, 1400]}
+          sizes="(min-width: 760px) 480px, 80vw"
+          loading="eager"
+        />
+      </div>
+
+      <p class="teaser-line reveal">
+        A circle of fine lines — the light that emerges when people come together.
+      </p>
+
+      <p class="body-serif teaser-body reveal">
+        Anthara is Bioma's next serviced farm plot community: the same red earth of the
+        G.O.&nbsp;111 countryside, the same resident crews, a new circle of families. Details
+        are being drawn up now, with the same care we put into the land itself.
+      </p>
+
+      <p class="mono-data teaser-status reveal">STATUS — IN PREPARATION</p>
+
+      <div class="teaser-actions reveal">
+        <a href={whatsapp} class="btn btn-terra" target="_blank" rel="noopener">
+          Register early interest
+        </a>
+        <a href={SITE.phoneHref} class="btn btn-ghost btn-ghost--paper">
+          Call {SITE.phoneDisplay}
+        </a>
+      </div>
+
+      <a href={withBase('/elite18')} class="teaser-cross reveal">
+        <span class="mono-data">MEANWHILE — ELITE 18 IS OPEN</span>
+        <span class="mono-data teaser-cross-arrow">VIEW PROJECT →</span>
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .teaser {
+    min-height: calc(100svh - 60px);
+    display: flex;
+    align-items: center;
+    padding-block: clamp(3rem, 8vw, 6rem);
+    background:
+      radial-gradient(
+        ellipse 90% 60% at 50% 30%,
+        rgba(227, 114, 94, 0.14) 0%,
+        transparent 65%
+      ),
+      var(--navy);
+  }
+
+  .teaser-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .teaser-topline {
+    color: var(--terracotta);
+    margin-bottom: clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .teaser-lockup {
+    width: min(78vw, 440px);
+    margin-bottom: clamp(2rem, 6vw, 3rem);
+  }
+
+  .teaser-lockup :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .teaser-line {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: clamp(1.125rem, 1rem + 1vw, 1.5rem);
+    line-height: 1.5;
+    color: rgba(243, 237, 226, 0.9);
+    max-width: 26em;
+    margin-bottom: 1.5rem;
+    text-wrap: pretty;
+  }
+
+  .teaser-body {
+    color: rgba(243, 237, 226, 0.68);
+    margin-inline: auto;
+    margin-bottom: 2rem;
+  }
+
+  .teaser-status {
+    color: var(--terracotta);
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+  }
+
+  .teaser-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: clamp(3rem, 8vw, 4.5rem);
+  }
+
+  .btn-terra {
+    background: var(--terracotta);
+    color: var(--navy);
+    border: 1px solid var(--terracotta);
+  }
+
+  .btn-terra:hover {
+    background: #d5604b;
+    border-color: #d5604b;
+  }
+
+  .teaser-cross {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 2rem;
+    width: min(100%, 440px);
+    border-top: 1px solid rgba(243, 237, 226, 0.25);
+    padding-top: 1rem;
+    text-decoration: none;
+  }
+
+  .teaser-cross .mono-data {
+    color: rgba(243, 237, 226, 0.6);
+    letter-spacing: 0.14em;
+  }
+
+  .teaser-cross-arrow {
+    color: var(--terracotta) !important;
+  }
+
+  .teaser-cross:hover .mono-data {
+    color: var(--paper);
+  }
+</style>

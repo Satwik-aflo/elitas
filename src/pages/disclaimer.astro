@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+---
+
+<Base
+  title="Disclaimer | Bioma"
+  description="Marketing disclaimer for the Bioma website and its project pages."
+>
+  <section class="section">
+    <div class="container">
+      <div class="ledger-head">
+        <span class="mono-label">Legal</span>
+        <span class="mono-label">Marketing disclaimer</span>
+      </div>
+      <h1 class="display display-lg disc-title">Disclaimer</h1>
+
+      <div class="disc-body">
+        <p>
+          This website is for general information only and does not constitute an offer, an
+          invitation to offer, a commitment or a legal agreement of any kind. Nothing on this
+          website shall be construed as a promise of sale, allotment, specification, amenity or
+          timeline.
+        </p>
+        <p>
+          All images, renders, walkthroughs, plans and visualisations on this website —
+          including views of gardens, amenities, structures and landscapes — are
+          <strong>artistic impressions for representation only</strong> and do not depict a
+          completed or approved state of any project. Actual outcomes may differ.
+        </p>
+        <p>
+          Plots offered are agricultural farm plots. Land in this region falls within the area
+          governed by <strong>G.O. Ms. No. 111</strong> and construction on any plot, where
+          undertaken, is optional and subject to the norms applicable to such land, including
+          limits on built-up footprint. Any farm house designs shown are
+          <strong>proposed concepts</strong>; no representation is made that any structure is
+          sanctioned or approved. Buyers must independently verify the permissibility of any
+          construction with the relevant authorities before proceeding.
+        </p>
+        <p>
+          Areas, dimensions, distances and travel times mentioned on this website are
+          approximate, based on third-party map services and site measurements, and are provided
+          for convenience only. Registered extents include undivided shares in common areas as
+          per the applicable documentation.
+        </p>
+        <p>
+          Nothing on this website claims or implies registration of any project under the Real
+          Estate (Regulation and Development) Act, 2016, nor approval of any layout by HMDA,
+          DTCP or any other authority, unless expressly stated with the relevant number.
+        </p>
+        <p>
+          Prospective buyers are advised to seek independent legal advice and to rely solely on
+          the definitive transaction documents executed between the parties. For current
+          information, contact us at {SITE.phoneDisplay}.
+        </p>
+        <p class="disc-note mono-data">
+          THIS DISCLAIMER IS A DRAFT PENDING REVIEW BY BIOMA'S LEGAL ADVISORS.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .disc-title {
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+
+  .disc-body p {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    max-width: 46em;
+    margin-bottom: 1.25rem;
+  }
+
+  .disc-body strong {
+    font-weight: 600;
+  }
+
+  .disc-note {
+    color: var(--laterite);
+    letter-spacing: 0.14em;
+    padding-top: 1rem;
+  }
+</style>

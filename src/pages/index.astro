@@ -1,0 +1,559 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import BiomaMark from '../components/BiomaMark.astro';
+import { whatsappHref, withBase } from '../lib/site';
+
+import entrance from '../assets/elite18/entrance.jpg';
+import gardenResidence from '../assets/elite18/garden-residence.jpg';
+import antharaLockup from '../assets/anthara/lockup-reverse.png';
+---
+
+<Base title="Bioma — Serviced Farm Plot Communities, Hyderabad">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <p class="mono-label hero-topline reveal">
+        Bioma&ensp;·&ensp;Red earth&ensp;·&ensp;Living land
+      </p>
+      <h1 class="display hero-title reveal">
+        Twenty&#8209;five minutes past the city, the soil turns red.
+      </h1>
+      <p class="body-serif hero-sub reveal">
+        Bioma holds land the way a ledger holds a record — plainly, permanently. We build
+        <em>serviced farm plot communities</em> in the G.O.&nbsp;111 countryside of Hyderabad,
+        where resident crews farm every parcel and the harvest is yours.
+      </p>
+      <div class="hero-actions reveal">
+        <a href={withBase('/elite18')} class="btn btn-primary">View Elite 18</a>
+        <a
+          href={whatsappHref('Hello Bioma — I would like to know more about your projects.')}
+          class="btn btn-ghost"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp Enquiry
+        </a>
+      </div>
+    </div>
+    <div class="hero-horizon" aria-hidden="true">
+      <svg viewBox="0 0 1200 110" preserveAspectRatio="xMidYMax meet">
+        <path class="horizon-dome" d="M520 92 A80 80 0 0 1 680 92 Z" fill="var(--laterite)"></path>
+        <line x1="0" y1="100" x2="1200" y2="100" stroke="var(--ink)" stroke-width="2.5"></line>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ DATA STRIP ============ -->
+  <section class="strip" aria-label="Bioma at a glance">
+    <div class="container strip-row">
+      <span class="mono-data">HYDERABAD · TELANGANA</span>
+      <span class="mono-data">G.O. 111 COUNTRYSIDE</span>
+      <span class="mono-data">02 COMMUNITIES</span>
+      <span class="mono-data">RESIDENT FARM CREWS</span>
+    </div>
+  </section>
+
+  <!-- ============ THE PREMISE ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The premise</span>
+        <span class="mono-label">01 — 03</span>
+      </div>
+      <h2 class="display display-lg premise-title reveal">
+        Own the land. We keep it alive.
+      </h2>
+      <div class="premise-grid">
+        <article class="premise-item reveal">
+          <p class="mono-data premise-num">01</p>
+          <h3 class="premise-h">The plot</h3>
+          <p class="premise-p">
+            A registered farm plot in a small, gated countryside community. Leave it open, or add
+            a farm house within G.O.&nbsp;111 norms — the law that keeps this landscape low-rise,
+            green and permanent.
+          </p>
+        </article>
+        <article class="premise-item reveal">
+          <p class="mono-data premise-num">02</p>
+          <h3 class="premise-h">The farm</h3>
+          <p class="premise-p">
+            Fruit, vegetable and kitchen gardens are laid out on your land and cultivated
+            year-round by resident crews who live on site — you pay a maintenance fee, they do
+            the farming.
+          </p>
+        </article>
+        <article class="premise-item reveal">
+          <p class="mono-data premise-num">03</p>
+          <h3 class="premise-h">The harvest</h3>
+          <p class="premise-p">
+            You arrive on the weekend to shade, soil and a standing harvest. From tree to table —
+            the luxury of growing your own, without keeping a farmer's hours.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEXTURE BAND ============ -->
+  <section class="band reveal">
+    <Image
+      src={gardenResidence}
+      alt="The Garden Residence at Elite 18 by night — artistic impression"
+      widths={[640, 1080, 1600, 2127]}
+      sizes="100vw"
+      class="band-img"
+      loading="lazy"
+    />
+    <p class="band-caption mono-data">THE GARDEN RESIDENCE — ELITE 18 · ARTISTIC IMPRESSION</p>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The communities</span>
+        <span class="mono-label">Index</span>
+      </div>
+
+      <!-- Elite 18 -->
+      <a href={withBase('/elite18')} class="project reveal">
+        <div class="project-media">
+          <Image
+            src={entrance}
+            alt="Elite 18 entrance avenue — artistic impression"
+            widths={[640, 1080, 1600, 2560]}
+            sizes="(min-width: 900px) 60vw, 100vw"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-info">
+          <p class="mono-data project-num">PROJECT 01 · NOW OPEN</p>
+          <h3 class="display display-md project-name">Elite 18</h3>
+          <p class="project-desc">
+            Solitude living across six acres at Yelkaguda, Moinabad — just you and eighteen
+            families like you.
+          </p>
+          <p class="mono-data project-data">19 PLOTS · 682–1,246 SQ YD · 5.77 ACRES</p>
+          <span class="project-cta mono-data">VIEW PROJECT →</span>
+        </div>
+      </a>
+
+      <!-- Anthara -->
+      <a href={withBase('/anthara')} class="project project--navy reveal">
+        <div class="project-media project-media--lockup">
+          <Image
+            src={antharaLockup}
+            alt="Anthara wordmark with radiating sun mark"
+            widths={[480, 800, 1400]}
+            sizes="(min-width: 900px) 40vw, 80vw"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-info">
+          <p class="mono-data project-num project-num--terracotta">PROJECT 02 · IN PREPARATION</p>
+          <h3 class="display display-md project-name">Anthara</h3>
+          <p class="project-desc project-desc--paper">
+            The next serviced farm plot community. Same red earth, same care — a new circle of
+            families.
+          </p>
+          <span class="project-cta mono-data project-cta--terracotta">COMING SOON →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ THE PEOPLE ============ -->
+  <section class="section people">
+    <div class="container">
+      <div class="ledger-head reveal">
+        <span class="mono-label">The people</span>
+        <span class="mono-label">Est. Hyderabad</span>
+      </div>
+      <div class="people-grid">
+        <div class="people-copy reveal">
+          <h2 class="display display-lg">Built by people who stay.</h2>
+          <p class="body-serif people-p">
+            Bioma is a Hyderabad company founded by <strong>Ramesh Reddy Meda</strong> and
+            <strong>Rajeshwar Reddy Buyyani</strong> — builders with real estate credibility
+            earned through their ventures <em>E&#8209;Infra</em> and <em>MoonGlade</em>.
+          </p>
+          <p class="body-serif people-p">
+            Elite 18 and Anthara are Bioma's first communities, and they are built the way a
+            first thing must be: carefully, on land we know, in the countryside we come from.
+            We put our crews on the land before we put our name on it.
+          </p>
+        </div>
+        <div class="people-aside reveal">
+          <div class="people-card">
+            <p class="mono-label">Founders</p>
+            <p class="people-name">Ramesh Reddy Meda</p>
+            <p class="people-name">Rajeshwar Reddy Buyyani</p>
+            <hr class="rule-soft people-rule" />
+            <p class="mono-label">Ventures</p>
+            <p class="mono-data">E-INFRA · MOONGLADE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ G.O. 111 ============ -->
+  <section class="go111">
+    <div class="container go111-inner">
+      <div class="go111-mark reveal" aria-hidden="true">
+        <BiomaMark size={54} dome="var(--terracotta)" line="var(--paper)" />
+      </div>
+      <div class="reveal">
+        <p class="mono-label go111-label">Why G.O. 111 land</p>
+        <p class="go111-quote">
+          One rule governs this countryside: build on no more than a tenth of the land. It is
+          the reason the horizon here will stay a horizon — low, green and quiet. We didn't
+          write the rule. We just build like we mean it.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding-top: clamp(4rem, 12vh, 8rem);
+    overflow: hidden;
+  }
+
+  .hero-topline {
+    color: var(--laterite);
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .hero-title {
+    font-size: clamp(2.375rem, 1.6rem + 6.2vw, 6rem);
+    max-width: 11.5em;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .hero-sub {
+    margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: clamp(3rem, 8vw, 5rem);
+  }
+
+  .hero-horizon svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .horizon-dome {
+    animation: rise 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) 0.3s both;
+  }
+
+  @keyframes rise {
+    from {
+      transform: translateY(70px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .horizon-dome {
+      animation: none;
+    }
+  }
+
+  /* ---------- Data strip ---------- */
+  .strip {
+    border-bottom: var(--hairline);
+    background: var(--paper-raised);
+  }
+
+  .strip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2.5rem;
+    justify-content: space-between;
+    padding-block: 0.9rem;
+  }
+
+  .strip-row .mono-data {
+    letter-spacing: 0.14em;
+    font-size: 0.625rem;
+    color: var(--stone);
+  }
+
+  /* ---------- Premise ---------- */
+  .premise-title {
+    max-width: 13em;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .premise-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 760px) {
+    .premise-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+  }
+
+  .premise-item {
+    border-top: var(--hairline-soft);
+    padding-top: 1.1rem;
+  }
+
+  .premise-num {
+    color: var(--laterite);
+    margin-bottom: 0.9rem;
+  }
+
+  .premise-h {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .premise-p {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+  }
+
+  /* ---------- Texture band ---------- */
+  .band {
+    position: relative;
+    border-block: var(--hairline);
+  }
+
+  .band :global(img) {
+    width: 100%;
+    height: clamp(280px, 55vw, 560px);
+    object-fit: cover;
+  }
+
+  .band-caption {
+    position: absolute;
+    left: var(--gutter);
+    bottom: 0.9rem;
+    color: rgba(243, 237, 226, 0.85);
+    letter-spacing: 0.14em;
+    font-size: 0.5625rem;
+  }
+
+  /* ---------- Projects ---------- */
+  .project {
+    display: grid;
+    text-decoration: none;
+    border: var(--hairline);
+    background: var(--paper-raised);
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .project:hover {
+    box-shadow: 6px 6px 0 0 var(--laterite);
+    transform: translate(-2px, -2px);
+  }
+
+  @media (min-width: 900px) {
+    .project {
+      grid-template-columns: 3fr 2fr;
+      align-items: stretch;
+    }
+  }
+
+  .project-media {
+    overflow: hidden;
+    border-bottom: var(--hairline);
+  }
+
+  @media (min-width: 900px) {
+    .project-media {
+      border-bottom: 0;
+      border-right: var(--hairline);
+    }
+  }
+
+  .project-media :global(img) {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+
+  .project:hover .project-media :global(img) {
+    transform: scale(1.025);
+  }
+
+  .project-info {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .project-num {
+    color: var(--laterite);
+    letter-spacing: 0.14em;
+  }
+
+  .project-desc {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 26em;
+    text-wrap: pretty;
+  }
+
+  .project-data {
+    color: var(--stone);
+  }
+
+  .project-cta {
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--laterite);
+    letter-spacing: 0.12em;
+  }
+
+  /* Anthara card */
+  .project--navy {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--paper);
+  }
+
+  .project--navy:hover {
+    box-shadow: 6px 6px 0 0 var(--terracotta);
+  }
+
+  .project-media--lockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(2rem, 6vw, 3.5rem);
+    border-color: rgba(243, 237, 226, 0.2);
+  }
+
+  .project-media--lockup :global(img) {
+    width: min(100%, 420px);
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
+  }
+
+  .project--navy:hover .project-media--lockup :global(img) {
+    transform: none;
+  }
+
+  .project-num--terracotta,
+  .project-cta--terracotta {
+    color: var(--terracotta);
+  }
+
+  .project-desc--paper {
+    color: rgba(243, 237, 226, 0.75);
+  }
+
+  /* ---------- People ---------- */
+  .people-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .people-grid {
+      grid-template-columns: 3fr 2fr;
+      gap: clamp(2.5rem, 6vw, 5rem);
+      align-items: start;
+    }
+  }
+
+  .people-copy h2 {
+    max-width: 12em;
+    margin-bottom: 1.75rem;
+  }
+
+  .people-p {
+    margin-bottom: 1.25rem;
+  }
+
+  .people-p strong {
+    font-weight: 600;
+  }
+
+  .people-card {
+    border: var(--hairline);
+    background: var(--paper-raised);
+    padding: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .people-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+  }
+
+  .people-rule {
+    margin-block: 1.25rem;
+  }
+
+  .people-card .mono-data {
+    margin-top: 0.5rem;
+    color: var(--laterite);
+  }
+
+  /* ---------- G.O. 111 ---------- */
+  .go111 {
+    background: var(--field);
+    color: var(--paper);
+    padding-block: clamp(3.5rem, 9vw, 6rem);
+  }
+
+  .go111-inner {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 760px) {
+    .go111-inner {
+      grid-template-columns: auto 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+  }
+
+  .go111-label {
+    color: rgba(243, 237, 226, 0.7);
+    margin-bottom: 1.25rem;
+  }
+
+  .go111-quote {
+    font-family: var(--font-body);
+    font-size: clamp(1.25rem, 1.05rem + 1.4vw, 1.75rem);
+    line-height: 1.5;
+    max-width: 30em;
+    text-wrap: pretty;
+  }
+</style>
