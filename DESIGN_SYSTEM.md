@@ -38,7 +38,7 @@ the Elitas company interface outside Anthara content.
 
 ## Typography
 
-- Archivo Variable: wordmark, navigation, headings, actions and interface text
+- Geist Variable: wordmark, navigation, headings, actions and interface text
 - Newsreader Variable: longer editorial and project copy
 - IBM Plex Mono: small factual data only
 

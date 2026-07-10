@@ -7,7 +7,7 @@ plot communities in the GO 111 countryside.
 
 - Logo: a geometric E formed from a foundation and three cultivated terraces
 - Palette: Forest `#14352D`, Limestone `#F2F4EF`, Leaf `#C8DA72`, Mist `#E7EBE4`
-- Display: Archivo Variable
+- Display: Geist Variable
 - Editorial copy: Newsreader Variable
 - Principles: calm confidence, clear hierarchy, real project imagery, mobile-first layouts
 

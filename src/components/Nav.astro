@@ -8,7 +8,7 @@ interface Props {
 
 const { theme = 'paper' } = Astro.props;
 const links = [
-  { label: 'Projects', href: withBase('/#projects') },
+  { label: 'Projects', href: withBase('/#communities') },
   { label: 'Partners', href: withBase('/#partners') },
   { label: 'Contact', href: withBase('/#contact') },
 ];
@@ -66,29 +66,39 @@ const links = [
 
 <style>
   .nav {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 0.9rem;
+    left: 0;
+    right: 0;
     z-index: 40;
-    min-height: 70px;
     color: var(--forest);
-    background: color-mix(in srgb, var(--canvas) 92%, transparent);
-    border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    pointer-events: none;
   }
 
   .nav--navy {
     color: var(--paper);
-    background: color-mix(in srgb, var(--navy) 92%, transparent);
-    border-color: rgba(242, 244, 239, 0.2);
   }
 
   .nav-row {
-    min-height: 70px;
+    width: min(calc(100% - 2rem), 78rem);
+    min-height: 58px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    padding: 0.42rem 0.48rem 0.42rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--forest) 18%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--canvas) 82%, transparent);
+    box-shadow: 0 18px 60px rgba(5, 24, 19, 0.12);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    pointer-events: auto;
+  }
+
+  .nav--navy .nav-row {
+    border-color: rgba(242, 244, 239, 0.2);
+    background: color-mix(in srgb, var(--navy) 82%, transparent);
   }
 
   .nav-brand {
@@ -147,10 +157,11 @@ const links = [
   }
 
   .nav-project {
-    min-height: 42px;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
-    padding-inline: 1rem;
+    padding-inline: 1.15rem;
+    border-radius: 999px;
     background: var(--forest);
     color: var(--canvas);
     border: 1px solid var(--forest);
@@ -168,6 +179,7 @@ const links = [
     height: 44px;
     padding: 0;
     border: 1px solid currentColor;
+    border-radius: 999px;
     background: transparent;
     color: inherit;
   }
@@ -188,14 +200,15 @@ const links = [
 
     .nav-menu {
       position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
+      top: 68px;
+      left: 1rem;
+      right: 1rem;
       display: grid;
       gap: 1.25rem;
       padding: 1rem var(--gutter) 1.5rem;
-      background: var(--canvas);
-      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--canvas) 96%, transparent);
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(5, 24, 19, 0.16);
       opacity: 0;
       visibility: hidden;
       transform: translateY(-8px);

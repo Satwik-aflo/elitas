@@ -7,661 +7,1217 @@ import { whatsappHref, withBase } from '../lib/site';
 import entrance from '../assets/elite18/entrance.jpg';
 import gardenResidence from '../assets/elite18/garden-residence.jpg';
 import nightFruit from '../assets/elite18/night-fruit-garden.jpg';
+import nightKitchen from '../assets/elite18/night-kitchen-garden.jpg';
+import pool from '../assets/elite18/pool.jpg';
+import pergola from '../assets/elite18/pergola.jpg';
+import clubhouse from '../assets/elite18/clubhouse.jpg';
 import antharaLockup from '../assets/anthara/lockup-reverse.png';
 
-const principles = [
+const marqueeItems = [
+  'E-Infra',
+  'MoonGlade',
+  'Skyven',
+  'One Downtown',
+  'Elegant Nivasa',
+  'Riveredge Villas',
+  'La Paloma',
+];
+
+const perspectives = [
   {
-    title: 'Own the land',
-    body: 'A registered farm plot in a small countryside community, held as a place to return to.',
+    title: 'Own something real.',
+    body: 'The plot remains the foundation: registered land in a deliberately small countryside community.',
   },
   {
-    title: 'We keep it living',
+    title: 'Arrive after the work is done.',
     body: 'Resident crews cultivate the gardens through the week, supported by a shared maintenance plan.',
   },
   {
-    title: 'You receive the harvest',
-    body: 'Arrive to trees, seasonal produce and the quiet satisfaction of land that is cared for.',
+    title: 'Return to a living place.',
+    body: 'Seasonal produce, mature planting and quiet common spaces make each visit feel established.',
   },
 ];
 ---
 
 <Base title="Elitas | Serviced Farm Plot Communities near Hyderabad">
-  <section class="home-hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="hero-kicker">Land. Life. Legacy.</p>
-        <h1>Space to live beyond the city.</h1>
-        <p class="hero-sub">Serviced farm plot communities shaped for slower weekends, living landscapes and lasting value.</p>
+  <div class="home-shell">
+    <section class="cinematic-hero">
+      <Image
+        src={entrance}
+        alt="Tree-lined entrance at Elite 18, shown as an artistic impression"
+        widths={[720, 1280, 1920, 2560]}
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="hero-image"
+      />
+      <div class="hero-wash" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-intro">Land. Life. Legacy.</p>
+        <h1 class="max-w-6xl">
+          <span class="hero-line">Where the city ends,</span>
+          <span class="hero-line">life opens up.</span>
+        </h1>
+        <p class="hero-copy">
+          Serviced farm plot communities shaped for slower weekends, living landscapes and lasting value.
+        </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View projects</a>
+          <a class="hero-button hero-button--primary" href="#communities">Explore projects</a>
           <a
-            class="btn btn-ghost"
+            class="hero-button hero-button--secondary"
             href={whatsappHref('Hello Elitas, I would like to know more about your projects.')}
             target="_blank"
             rel="noopener"
           >
-            WhatsApp
+            Start a conversation
           </a>
         </div>
       </div>
+    </section>
 
-      <figure class="hero-media">
-        <Image
-          src={entrance}
-          alt="A tree-lined entrance at Elite 18, shown as an artistic impression"
-          widths={[640, 960, 1280, 1800]}
-          sizes="(min-width: 900px) 55vw, 100vw"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </figure>
-    </div>
-  </section>
-
-  <section class="facts" aria-label="Elitas at a glance">
-    <div class="container facts-grid">
-      <p><strong>02</strong><span>Communities</span></p>
-      <p><strong>GO 111</strong><span>Countryside</span></p>
-      <p><strong>Resident</strong><span>Farm crews</span></p>
-      <p><strong>Hyderabad</strong><span>Telangana</span></p>
-    </div>
-  </section>
-
-  <section class="section premise">
-    <div class="container">
-      <div class="premise-intro reveal">
-        <h2>Land, cared for.</h2>
-        <p>Ownership should feel alive. Elitas brings the plot, the people and the everyday care together.</p>
+    <section class="experience-marquee" aria-label="Experience across established developments">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          {marqueeItems.map((item) => <span>{item}</span>)}
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          {marqueeItems.map((item) => <span>{item}</span>)}
+        </div>
       </div>
+    </section>
 
-      <div class="principles">
-        {principles.map((principle, index) => (
-          <article class:list={['principle', { 'principle--feature': index === 0 }, 'reveal']}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            <div>
-              <h3>{principle.title}</h3>
-              <p>{principle.body}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+    <section class="interest-section" id="communities">
+      <div class="container">
+        <div class="interest-heading">
+          <h2>
+            Land
+            <span class="inline-landscape" aria-hidden="true">
+              <Image src={nightFruit} alt="" widths={[240, 480]} sizes="180px" loading="lazy" />
+            </span>
+            made living.
+          </h2>
+          <p>
+            Elitas brings ownership, cultivation and everyday care into one clear proposition.
+          </p>
+        </div>
 
-  <section class="landscape reveal" aria-label="A living landscape at Elite 18">
-    <Image
-      src={gardenResidence}
-      alt="Garden Residence surrounded by greenery at night, shown as an artistic impression"
-      widths={[640, 1080, 1600, 2127]}
-      sizes="100vw"
-      loading="lazy"
-    />
-    <div class="landscape-copy">
-      <p>A home is optional.</p>
-      <h2>The landscape is essential.</h2>
-    </div>
-  </section>
-
-  <section class="section projects" id="projects">
-    <div class="container">
-      <div class="projects-head reveal">
-        <h2>Our communities</h2>
-        <p>Two intimate places, each with its own character and a shared respect for the land.</p>
-      </div>
-
-      <div class="projects-grid">
-        <a class="project project--elite reveal" href={withBase('/elite18')}>
-          <div class="project-image">
+        <div class="bento-grid">
+          <a class="bento-cell bento-cell--land" href={withBase('/elite18')}>
             <Image
-              src={nightFruit}
-              alt="Fruit garden at Elite 18 by night, shown as an artistic impression"
-              widths={[640, 960, 1400]}
-              sizes="(min-width: 800px) 58vw, 100vw"
+              src={gardenResidence}
+              alt="Garden Residence at Elite 18 by night, shown as an artistic impression"
+              widths={[640, 1080, 1600]}
+              sizes="(min-width: 800px) 50vw, 100vw"
               loading="lazy"
             />
-          </div>
-          <div class="project-content">
-            <p class="project-status">Now open</p>
-            <h3>Elite 18</h3>
-            <p>Solitude living across 5.77 acres at Yelkaguda, Moinabad.</p>
-            <span>Explore the project</span>
-          </div>
-        </a>
+            <div class="bento-overlay">
+              <span>Elite 18</span>
+              <strong>Solitude, made tangible.</strong>
+            </div>
+          </a>
 
-        <a class="project project--anthara reveal" href={withBase('/anthara')}>
-          <div class="anthara-lockup">
+          <article class="bento-cell bento-cell--care">
+            <p>Resident farm crews</p>
+            <h3>Cared for through the week.</h3>
+            <span>Your maintenance plan supports cultivation, upkeep and the people who make the landscape thrive.</span>
+          </article>
+
+          <figure class="bento-cell bento-cell--harvest">
+            <Image
+              src={nightKitchen}
+              alt="Kitchen garden at night, shown as an artistic impression"
+              widths={[480, 800]}
+              sizes="(min-width: 800px) 25vw, 100vw"
+              loading="lazy"
+            />
+            <figcaption>Your own seasonal harvest.</figcaption>
+          </figure>
+
+          <a class="bento-cell bento-cell--anthara" href={withBase('/anthara')}>
             <Image
               src={antharaLockup}
-              alt="Anthara wordmark with its radiating sun symbol"
-              widths={[480, 800, 1200]}
-              sizes="(min-width: 800px) 28vw, 75vw"
+              alt="Anthara wordmark with radiating sun symbol"
+              widths={[480, 800]}
+              sizes="(min-width: 800px) 22vw, 75vw"
+              loading="lazy"
+            />
+            <span>Coming into view</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pin-story">
+      <div class="container pin-grid">
+        <div class="pin-copy">
+          <p>What changes when the land comes first?</p>
+          <h2>A different rhythm of ownership.</h2>
+          <span>Scroll through the landscape</span>
+        </div>
+
+        <div class="pin-gallery">
+          <figure class="pin-panel">
+            <div class="pin-media">
+              <Image
+                src={pool}
+                alt="Poolside landscape at Elite 18, shown as an artistic impression"
+                widths={[640, 1080, 1600]}
+                sizes="(min-width: 900px) 55vw, 100vw"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              <strong>Shared spaces feel considered.</strong>
+              <span>Water, shade and gathering places are set within the landscape rather than placed on top of it.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="pin-panel">
+            <div class="pin-media">
+              <Image
+                src={pergola}
+                alt="Pergola seating within mature planting, shown as an artistic impression"
+                widths={[640, 1080, 1600]}
+                sizes="(min-width: 900px) 55vw, 100vw"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              <strong>Weekends begin already settled.</strong>
+              <span>Resident care keeps the land active while you are away, so arriving feels effortless.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="pin-panel">
+            <div class="pin-media">
+              <Image
+                src={clubhouse}
+                alt="The clubhouse at Elite 18, shown as an artistic impression"
+                widths={[640, 1080, 1600]}
+                sizes="(min-width: 900px) 55vw, 100vw"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              <strong>Small communities stay personal.</strong>
+              <span>Fewer families make room for privacy, familiarity and a quieter shared life.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack-section">
+      <div class="container stack-heading">
+        <h2>Three layers.<br />One lasting idea.</h2>
+        <p>The Elitas experience is designed as a sequence: own, tend, return.</p>
+      </div>
+
+      <div class="container stack-wrap">
+        <article class="stack-card stack-card--land">
+          <div class="stack-number">01</div>
+          <div class="stack-content">
+            <p>Own</p>
+            <h3>The land is the foundation.</h3>
+            <span>A registered farm plot in a low-density countryside community.</span>
+          </div>
+          <div class="stack-visual">
+            <Image
+              src={entrance}
+              alt="Landscaped approach to Elite 18, shown as an artistic impression"
+              widths={[640, 1080, 1600]}
+              sizes="(min-width: 900px) 50vw, 100vw"
               loading="lazy"
             />
           </div>
-          <div class="project-content">
-            <p class="project-status">In preparation</p>
-            <h3>Anthara</h3>
-            <p>A new circle of families in the GO 111 countryside.</p>
-            <span>Preview Anthara</span>
+        </article>
+
+        <article class="stack-card stack-card--care">
+          <div class="stack-number">02</div>
+          <div class="stack-content">
+            <p>Tend</p>
+            <h3>Care continues in your absence.</h3>
+            <span>Resident crews cultivate the gardens and maintain the shared landscape.</span>
           </div>
-        </a>
-      </div>
-    </div>
-  </section>
+          <div class="stack-visual">
+            <Image
+              src={nightKitchen}
+              alt="A maintained kitchen garden at night, shown as an artistic impression"
+              widths={[640, 1080, 1600]}
+              sizes="(min-width: 900px) 50vw, 100vw"
+              loading="lazy"
+            />
+          </div>
+        </article>
 
-  <section class="section identity">
-    <div class="container identity-grid">
-      <div class="identity-mark reveal">
-        <ElitasMark size={240} />
+        <article class="stack-card stack-card--return">
+          <div class="stack-number">03</div>
+          <div class="stack-content">
+            <p>Return</p>
+            <h3>Come back to something alive.</h3>
+            <span>Shade, produce and familiar spaces turn a weekend visit into a ritual.</span>
+          </div>
+          <div class="stack-mark" aria-hidden="true">
+            <ElitasMark size={280} />
+          </div>
+        </article>
       </div>
-      <div class="identity-copy reveal">
-        <h2>An identity built from the land.</h2>
-        <p>
-          The Elitas E is formed from three terraces: a strong foundation, cultivated layers and
-          an open edge that looks forward.
-        </p>
-        <a href={withBase('/design-system')}>View the design system</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section partners" id="partners">
-    <div class="container partners-grid">
-      <div class="partners-title reveal">
-        <h2>Experience behind every decision.</h2>
+    <section class="perspective-section" id="partners" data-carousel>
+      <div class="container perspective-grid">
+        <div class="perspective-intro">
+          <p>The Elitas perspective</p>
+          <h2>Clear promises make better places.</h2>
+          <div class="thumbnail-cluster" aria-hidden="true">
+            <Image src={nightFruit} alt="" widths={[96, 160]} sizes="72px" loading="lazy" />
+            <Image src={pergola} alt="" widths={[96, 160]} sizes="72px" loading="lazy" />
+            <Image src={pool} alt="" widths={[96, 160]} sizes="72px" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="carousel-shell" aria-live="polite">
+          <div class="carousel-slides">
+            {perspectives.map((item, index) => (
+              <article class:list={['carousel-slide', { 'is-active': index === 0 }]} data-slide={index}>
+                <span>{String(index + 1).padStart(2, '0')} / {String(perspectives.length).padStart(2, '0')}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+          <div class="carousel-controls">
+            <button type="button" data-carousel-prev aria-label="Previous perspective">Previous</button>
+            <button type="button" data-carousel-next aria-label="Next perspective">Next</button>
+          </div>
+        </div>
       </div>
-      <div class="partners-copy reveal">
+
+      <div class="container founders-line">
         <p>
-          Elitas is led by <strong>Ramesh Reddy Meda</strong> and <strong>Rajeshwar Reddy Buyyani</strong>,
-          bringing experience from E-Infra and MoonGlade into a more personal kind of development.
+          Led by <strong>Ramesh Reddy Meda</strong> and <strong>Rajeshwar Reddy Buyyani</strong>,
+          with experience across E-Infra and MoonGlade.
         </p>
-        <p class="partners-note">Elite 18 and Anthara are the first Elitas communities.</p>
+        <a href={withBase('/design-system')}>Explore the Elitas identity</a>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </Base>
 
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion) {
+    gsap.from('.hero-intro, .hero-copy, .hero-actions', {
+      opacity: 0,
+      y: 22,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.hero-line', {
+      yPercent: 115,
+      duration: 1.15,
+      stagger: 0.1,
+      ease: 'power4.out',
+    });
+
+    const motion = gsap.matchMedia();
+
+    motion.add('(min-width: 900px)', () => {
+      ScrollTrigger.create({
+        trigger: '.pin-story',
+        start: 'top 12%',
+        endTrigger: '.pin-gallery',
+        end: 'bottom 72%',
+        pin: '.pin-copy',
+        pinSpacing: false,
+      });
+
+      const cards = gsap.utils.toArray<HTMLElement>('.stack-card');
+      cards.forEach((card, index) => {
+        if (index === cards.length - 1) return;
+        gsap.to(card, {
+          scale: 0.92,
+          opacity: 0.42,
+          filter: 'brightness(0.62)',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: cards[index + 1],
+            start: 'top 82%',
+            end: 'top 18%',
+            scrub: 1,
+          },
+        });
+      });
+
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+    });
+  }
+
+  const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+  const slides = Array.from(carousel?.querySelectorAll<HTMLElement>('[data-slide]') ?? []);
+  let activeSlide = 0;
+
+  const showSlide = (index: number) => {
+    activeSlide = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === activeSlide;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+  };
+
+  carousel?.querySelector('[data-carousel-prev]')?.addEventListener('click', () => showSlide(activeSlide - 1));
+  carousel?.querySelector('[data-carousel-next]')?.addEventListener('click', () => showSlide(activeSlide + 1));
+</script>
+
 <style>
-  .home-hero {
-    min-height: calc(100dvh - 70px);
-    display: grid;
-    align-items: center;
-    padding-block: clamp(2rem, 5vw, 4.5rem);
+  .home-shell {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    background:
+      radial-gradient(circle at 12% 36%, rgba(200, 218, 114, 0.11), transparent 28%),
+      var(--canvas);
   }
 
-  .hero-grid {
+  .cinematic-hero {
+    position: relative;
+    min-height: 100dvh;
     display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    align-items: center;
-    gap: clamp(2.5rem, 7vw, 7rem);
+    place-items: center;
+    overflow: hidden;
+    background: #0c2822;
+    color: #f2f4ef;
   }
 
-  .hero-copy {
+  .cinematic-hero :global(.hero-image) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.78) contrast(1.08);
+    transform: scale(1.025);
+  }
+
+  .hero-wash {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(10, 31, 26, 0.28), rgba(8, 25, 21, 0.9) 78%),
+      linear-gradient(180deg, rgba(6, 24, 20, 0.42), rgba(6, 24, 20, 0.78));
+  }
+
+  .hero-inner {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-block: 9rem 4rem;
   }
 
-  .hero-kicker {
-    margin-bottom: 1.25rem;
-    color: var(--accent-ink);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+  .hero-intro {
+    margin-bottom: 1.4rem;
+    color: #c8da72;
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .hero-copy h1 {
-    max-width: 9ch;
-    font-size: clamp(3.25rem, 7vw, 7rem);
+  .max-w-6xl {
+    width: 100%;
+    max-width: 72rem;
+    font-size: clamp(3rem, 6.8vw, 7.25rem);
     font-weight: 560;
-    letter-spacing: -0.06em;
-    line-height: 0.93;
+    letter-spacing: -0.065em;
+    line-height: 0.9;
     text-wrap: balance;
   }
 
-  .hero-sub {
-    max-width: 31rem;
-    margin-top: 1.5rem;
-    color: var(--text-muted);
+  .hero-line {
+    display: block;
+  }
+
+  .hero-copy {
+    max-width: 38rem;
+    margin-top: 1.75rem;
+    color: rgba(242, 244, 239, 0.78);
     font-family: var(--font-body);
     font-size: clamp(1.1rem, 1rem + 0.45vw, 1.35rem);
-    line-height: 1.55;
+    line-height: 1.5;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.75rem;
     margin-top: 2rem;
   }
 
-  .hero-media {
-    min-height: min(68vh, 710px);
+  .hero-button {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.4rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: transform 220ms ease, background-color 220ms ease;
+  }
+
+  .hero-button:hover {
+    transform: translateY(-3px);
+  }
+
+  .hero-button--primary {
+    background: #c8da72;
+    color: #102822;
+  }
+
+  .hero-button--secondary {
+    border-color: rgba(242, 244, 239, 0.62);
+    background: rgba(16, 40, 34, 0.28);
+    color: #f2f4ef;
+    backdrop-filter: blur(12px);
+  }
+
+  .experience-marquee {
     overflow: hidden;
+    border-bottom: 1px solid var(--line);
     background: var(--surface);
   }
 
-  .hero-media :global(img) {
+  .marquee-track {
+    width: max-content;
+    display: flex;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-group {
+    display: flex;
+    align-items: center;
+    flex: none;
+  }
+
+  .marquee-group span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 88px;
+    padding-inline: clamp(1.5rem, 4vw, 3.75rem);
+    border-right: 1px solid var(--line);
+    color: var(--text-muted);
+    font-size: clamp(1rem, 1.6vw, 1.35rem);
+    font-weight: 560;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .interest-section,
+  .pin-story,
+  .stack-section,
+  .perspective-section {
+    padding-block: clamp(8rem, 16vw, 13rem);
+  }
+
+  .interest-heading {
+    max-width: 74rem;
+    margin-bottom: clamp(4rem, 9vw, 7rem);
+  }
+
+  .interest-heading h2 {
+    font-size: clamp(3.2rem, 8vw, 7.75rem);
+    font-weight: 560;
+    letter-spacing: -0.065em;
+    line-height: 0.92;
+  }
+
+  .inline-landscape {
+    width: clamp(6rem, 12vw, 11rem);
+    height: clamp(2.5rem, 5vw, 4.6rem);
+    display: inline-block;
+    overflow: hidden;
+    margin-inline: 0.12em;
+    border-radius: 999px;
+    vertical-align: 0.08em;
+  }
+
+  .inline-landscape :global(img) {
     width: 100%;
     height: 100%;
-    min-height: min(68vh, 710px);
     object-fit: cover;
+    filter: saturate(0.72) contrast(1.12);
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .facts {
-    background: #0c2822;
-    color: #f2f4ef;
+  .interest-heading:hover .inline-landscape :global(img) {
+    transform: scale(1.1);
   }
 
-  .facts-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .facts p {
-    display: grid;
-    gap: 0.15rem;
-    min-height: 112px;
-    align-content: center;
-    padding: 1.25rem;
-    border-left: 1px solid rgba(242, 244, 239, 0.2);
-  }
-
-  .facts p:last-child {
-    border-right: 1px solid rgba(242, 244, 239, 0.2);
-  }
-
-  .facts strong {
-    color: var(--accent);
-    font-size: 1.1rem;
-    font-weight: 650;
-  }
-
-  .facts span {
-    color: rgba(242, 244, 239, 0.72);
-    font-size: 0.75rem;
-  }
-
-  .premise-intro {
-    max-width: 49rem;
-    margin-bottom: clamp(3rem, 7vw, 6rem);
-  }
-
-  .premise-intro h2,
-  .projects-head h2,
-  .identity-copy h2,
-  .partners h2 {
-    font-size: clamp(2.5rem, 5.5vw, 5.25rem);
-    font-weight: 560;
-    letter-spacing: -0.055em;
-    line-height: 0.98;
-  }
-
-  .premise-intro p,
-  .projects-head p {
+  .interest-heading > p {
     max-width: 38rem;
-    margin-top: 1.25rem;
+    margin-top: 1.75rem;
     color: var(--text-muted);
     font-family: var(--font-body);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 
-  .principles {
+  .bento-grid {
     display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    border-top: 1px solid var(--line);
-  }
-
-  .principle {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-    gap: 1rem;
-    min-height: 220px;
-    align-content: start;
-    padding: 2rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .principle--feature {
-    grid-row: span 2;
-    min-height: 440px;
-    align-content: end;
-    background: var(--surface);
-    border-right: 1px solid var(--line);
-  }
-
-  .principle > span {
-    color: var(--accent-ink);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-  }
-
-  .principle h3 {
-    font-size: clamp(1.5rem, 2.6vw, 2.5rem);
-    font-weight: 560;
-    letter-spacing: -0.035em;
-  }
-
-  .principle p {
-    max-width: 31rem;
-    margin-top: 0.75rem;
-    color: var(--text-muted);
-  }
-
-  .landscape {
-    position: relative;
-    min-height: 78vh;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(240px, 1fr));
+    grid-auto-flow: dense;
+    min-height: 720px;
     overflow: hidden;
-    background: var(--forest-deep);
+    border: 1px solid var(--line);
+    background: var(--line);
   }
 
-  .landscape::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(8, 29, 24, 0.78), transparent 68%);
+  .bento-cell {
+    position: relative;
+    overflow: hidden;
+    background: var(--canvas);
   }
 
-  .landscape :global(img) {
-    width: 100%;
-    height: 78vh;
-    object-fit: cover;
-  }
-
-  .landscape-copy {
-    position: absolute;
-    left: max(var(--gutter), calc((100vw - var(--container)) / 2));
-    bottom: clamp(2.5rem, 8vw, 6rem);
-    z-index: 1;
+  .bento-cell--land {
+    grid-column: span 2;
+    grid-row: span 2;
     color: #f2f4ef;
   }
 
-  .landscape-copy p {
-    margin-bottom: 0.6rem;
-    color: #c8da72;
-    font-size: 0.8rem;
+  .bento-cell--care {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(2rem, 5vw, 4rem);
+    background:
+      radial-gradient(circle at 82% 14%, rgba(200, 218, 114, 0.34), transparent 28%),
+      #e7ebe4;
+    color: #14352d;
+  }
+
+  .bento-cell--harvest,
+  .bento-cell--anthara {
+    grid-column: span 1;
+  }
+
+  .bento-cell--land :global(img),
+  .bento-cell--harvest :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 700ms ease;
+  }
+
+  .bento-cell--land:hover :global(img),
+  .bento-cell--harvest:hover :global(img) {
+    transform: scale(1.055);
+    filter: contrast(1.08);
+  }
+
+  .bento-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    padding: clamp(2rem, 5vw, 4rem);
+    background: linear-gradient(transparent, rgba(7, 25, 20, 0.86));
+  }
+
+  .bento-overlay span,
+  .bento-cell--care > p,
+  .bento-cell--anthara > span {
+    display: block;
+    margin-bottom: 0.65rem;
+    font-size: 0.75rem;
     font-weight: 650;
   }
 
-  .landscape-copy h2 {
-    max-width: 10ch;
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
+  .bento-overlay strong,
+  .bento-cell--care h3 {
+    max-width: 14ch;
+    display: block;
+    font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 560;
     letter-spacing: -0.05em;
     line-height: 0.98;
   }
 
-  .projects-head {
-    max-width: 52rem;
-    margin-bottom: clamp(3rem, 7vw, 5rem);
+  .bento-cell--care > span {
+    max-width: 34rem;
+    margin-top: 1.25rem;
+    color: #5d7069;
   }
 
-  .projects-grid {
+  .bento-cell--harvest figcaption {
+    position: absolute;
+    inset: auto 1.25rem 1.25rem;
+    color: #f2f4ef;
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+
+  .bento-cell--anthara {
     display: grid;
-    grid-template-columns: 1.35fr 0.65fr;
-    gap: 1px;
-    background: var(--line);
+    place-items: center;
+    padding: 2rem;
+    background: #1a2445;
+    color: #e3725e;
+    text-decoration: none;
+  }
+
+  .bento-cell--anthara :global(img) {
+    width: min(100%, 220px);
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bento-cell--anthara:hover :global(img) {
+    transform: scale(1.06);
+  }
+
+  .bento-cell--anthara > span {
+    position: absolute;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    margin: 0;
+  }
+
+  .pin-story {
+    position: relative;
+    background: #102822;
+    color: #f2f4ef;
+  }
+
+  .pin-story::before {
+    content: '';
+    position: absolute;
+    width: 38rem;
+    height: 38rem;
+    left: -16rem;
+    top: 18%;
+    border-radius: 50%;
+    background: rgba(200, 218, 114, 0.08);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .pin-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+    align-items: start;
+    gap: clamp(4rem, 9vw, 9rem);
+  }
+
+  .pin-copy {
+    align-self: start;
+  }
+
+  .pin-copy > p {
+    max-width: 25rem;
+    margin-bottom: 1.25rem;
+    color: #c8da72;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+  }
+
+  .pin-copy h2 {
+    max-width: 9ch;
+    font-size: clamp(3rem, 6vw, 6.25rem);
+    font-weight: 560;
+    letter-spacing: -0.06em;
+    line-height: 0.92;
+  }
+
+  .pin-copy > span {
+    display: block;
+    margin-top: 2rem;
+    color: rgba(242, 244, 239, 0.52);
+    font-size: 0.72rem;
+    font-weight: 650;
+  }
+
+  .pin-gallery {
+    display: grid;
+    gap: clamp(6rem, 14vw, 11rem);
+  }
+
+  .pin-media {
+    min-height: 66vh;
+    overflow: hidden;
+    background: #1b3b32;
+  }
+
+  .pin-media :global(img) {
+    width: 100%;
+    height: 66vh;
+    object-fit: cover;
+    filter: saturate(0.72) contrast(1.08);
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), filter 900ms ease;
+  }
+
+  .pin-panel:hover .pin-media :global(img) {
+    transform: scale(1.045);
+    filter: saturate(0.9) contrast(1.12);
+  }
+
+  .pin-panel figcaption {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(242, 244, 239, 0.28);
+  }
+
+  .pin-panel figcaption strong {
+    font-size: 1.1rem;
+    font-weight: 560;
+  }
+
+  .pin-panel figcaption span {
+    color: rgba(242, 244, 239, 0.64);
+    font-family: var(--font-body);
+  }
+
+  .stack-section {
+    background: var(--surface);
+  }
+
+  .stack-heading {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: end;
+    gap: 4rem;
+    margin-bottom: clamp(6rem, 12vw, 10rem);
+  }
+
+  .stack-heading h2 {
+    max-width: 12ch;
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 560;
+    letter-spacing: -0.065em;
+    line-height: 0.9;
+  }
+
+  .stack-heading p {
+    max-width: 32rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+  }
+
+  .stack-wrap {
+    position: relative;
+  }
+
+  .stack-card {
+    position: sticky;
+    top: 7.2rem;
+    min-height: 72vh;
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: stretch;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    overflow: hidden;
+    margin-bottom: 18vh;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    border: 1px solid rgba(20, 53, 45, 0.2);
+    transform-origin: top center;
+    box-shadow: 0 38px 100px rgba(7, 31, 25, 0.16);
+  }
+
+  .stack-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .stack-card--land {
+    background: #f2f4ef;
+    color: #14352d;
+  }
+
+  .stack-card--care {
+    background: #c8da72;
+    color: #102822;
+  }
+
+  .stack-card--return {
+    background: #14352d;
+    color: #f2f4ef;
+  }
+
+  .stack-number {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .stack-content {
+    align-self: center;
+  }
+
+  .stack-content > p {
+    margin-bottom: 0.8rem;
+    font-size: 0.76rem;
+    font-weight: 650;
+  }
+
+  .stack-content h3 {
+    max-width: 9ch;
+    font-size: clamp(2.4rem, 5vw, 5rem);
+    font-weight: 560;
+    letter-spacing: -0.055em;
+    line-height: 0.94;
+  }
+
+  .stack-content > span {
+    max-width: 29rem;
+    display: block;
+    margin-top: 1.4rem;
+    opacity: 0.72;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+  }
+
+  .stack-visual {
+    min-height: 55vh;
+    overflow: hidden;
+  }
+
+  .stack-visual :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stack-card:hover .stack-visual :global(img) {
+    transform: scale(1.045);
+  }
+
+  .stack-mark {
+    display: grid;
+    place-items: center;
+    color: #f2f4ef;
+  }
+
+  .stack-mark :global(svg) {
+    --mark-cut: #c8da72;
+    width: min(80%, 280px);
+  }
+
+  .perspective-section {
+    position: relative;
+    background: var(--canvas);
+  }
+
+  .perspective-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: stretch;
+    gap: clamp(4rem, 10vw, 10rem);
+  }
+
+  .perspective-intro > p {
+    margin-bottom: 1rem;
+    color: var(--accent-ink);
+    font-size: 0.76rem;
+    font-weight: 650;
+  }
+
+  .perspective-intro h2 {
+    max-width: 10ch;
+    font-size: clamp(3rem, 6vw, 6.25rem);
+    font-weight: 560;
+    letter-spacing: -0.06em;
+    line-height: 0.92;
+  }
+
+  .thumbnail-cluster {
+    display: flex;
+    margin-top: 3rem;
+    padding-left: 0.7rem;
+  }
+
+  .thumbnail-cluster :global(img) {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    margin-left: -0.7rem;
+    border: 4px solid var(--canvas);
+    border-radius: 50%;
+    filter: saturate(0.72) contrast(1.08);
+  }
+
+  .carousel-shell {
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    background:
+      radial-gradient(circle at 80% 10%, rgba(200, 218, 114, 0.34), transparent 30%),
+      var(--surface);
     border: 1px solid var(--line);
   }
 
-  .project {
-    display: grid;
-    background: var(--canvas);
-    text-decoration: none;
+  .carousel-slide {
+    display: none;
   }
 
-  .project-image {
-    min-height: 500px;
-    overflow: hidden;
+  .carousel-slide.is-active {
+    display: block;
+    animation: slide-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  .project-image :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .project:hover .project-image :global(img) {
-    transform: scale(1.025);
-  }
-
-  .project-content {
-    padding: clamp(1.5rem, 4vw, 2.75rem);
-  }
-
-  .project-status {
-    margin-bottom: 0.8rem;
+  .carousel-slide > span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     color: var(--accent-ink);
-    font-size: 0.75rem;
-    font-weight: 650;
   }
 
-  .project h3 {
-    font-size: clamp(2.25rem, 4vw, 4rem);
-    font-weight: 560;
-    letter-spacing: -0.05em;
-  }
-
-  .project-content > p:not(.project-status) {
-    max-width: 30rem;
-    margin-top: 0.75rem;
-    color: var(--text-muted);
-  }
-
-  .project-content span {
-    display: inline-block;
-    margin-top: 1.5rem;
-    border-bottom: 1px solid currentColor;
-    font-size: 0.75rem;
-    font-weight: 650;
-  }
-
-  .project--anthara {
-    align-content: space-between;
-    background: #1a2445;
-    color: #f2f4ef;
-  }
-
-  .project--anthara .project-status,
-  .project--anthara .project-content span {
-    color: #e3725e;
-  }
-
-  .project--anthara .project-content > p:not(.project-status) {
-    color: rgba(242, 244, 239, 0.72);
-  }
-
-  .anthara-lockup {
-    min-height: 500px;
-    display: grid;
-    place-items: center;
-    padding: 3rem;
-  }
-
-  .anthara-lockup :global(img) {
-    width: min(100%, 300px);
-  }
-
-  .identity {
-    background: var(--surface);
-  }
-
-  .identity-grid {
-    display: grid;
-    grid-template-columns: minmax(280px, 0.8fr) 1.2fr;
-    align-items: center;
-    gap: clamp(3rem, 10vw, 9rem);
-  }
-
-  .identity-mark {
-    min-height: 460px;
-    display: grid;
-    place-items: center;
-    color: #14352d;
-    background: #c8da72;
-  }
-
-  .identity-mark :global(svg) {
-    --mark-cut: #f2f4ef;
-    width: min(65%, 240px);
-  }
-
-  .identity-copy h2 {
+  .carousel-slide h3 {
     max-width: 10ch;
+    margin-top: clamp(2rem, 6vw, 5rem);
+    font-size: clamp(2.6rem, 5vw, 5.25rem);
+    font-weight: 560;
+    letter-spacing: -0.055em;
+    line-height: 0.94;
   }
 
-  .identity-copy p {
-    max-width: 35rem;
+  .carousel-slide p {
+    max-width: 36rem;
     margin-top: 1.5rem;
     color: var(--text-muted);
     font-family: var(--font-body);
     font-size: 1.2rem;
   }
 
-  .identity-copy a {
-    display: inline-block;
-    margin-top: 2rem;
-    border-bottom: 1px solid currentColor;
-    font-size: 0.8rem;
+  .carousel-controls {
+    display: flex;
+    gap: 0.65rem;
+    margin-top: 3rem;
+  }
+
+  .carousel-controls button {
+    min-height: 46px;
+    padding-inline: 1rem;
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text);
+    font-size: 0.75rem;
     font-weight: 650;
-    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
   }
 
-  .partners-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(3rem, 9vw, 8rem);
-    align-items: start;
+  .carousel-controls button:hover {
+    background: var(--text);
+    color: var(--canvas);
   }
 
-  .partners-title h2 {
-    max-width: 11ch;
+  .founders-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: clamp(5rem, 11vw, 9rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
   }
 
-  .partners-copy > p:first-child {
-    max-width: 37rem;
+  .founders-line p {
+    max-width: 54rem;
     color: var(--text-muted);
     font-family: var(--font-body);
-    font-size: clamp(1.3rem, 2vw, 1.75rem);
-    line-height: 1.5;
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
   }
 
-  .partners-copy strong {
+  .founders-line strong {
     color: var(--text);
     font-weight: 550;
   }
 
-  .partners-note {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--line);
-    color: var(--text-muted);
-    font-size: 0.8rem;
+  .founders-line a {
+    flex: none;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid currentColor;
+    font-size: 0.78rem;
+    font-weight: 650;
+    text-decoration: none;
   }
 
-  @media (max-width: 900px) {
-    .home-hero {
-      min-height: auto;
-      padding-top: 3rem;
-    }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
 
-    .hero-grid,
-    .identity-grid,
-    .partners-grid {
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 899px) {
+    .pin-grid,
+    .stack-heading,
+    .perspective-grid {
       grid-template-columns: 1fr;
     }
 
-    .hero-copy h1 {
-      max-width: 11ch;
+    .bento-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, minmax(260px, auto));
     }
 
-    .hero-media,
-    .hero-media :global(img) {
-      min-height: 55vh;
+    .bento-cell--land,
+    .bento-cell--care {
+      grid-column: span 2;
     }
 
-    .projects-grid {
-      grid-template-columns: 1fr;
+    .bento-cell--land {
+      grid-row: span 2;
     }
 
-    .project-image,
-    .anthara-lockup {
-      min-height: 410px;
+    .pin-copy h2 {
+      max-width: 13ch;
     }
 
-    .identity-mark {
-      min-height: 380px;
+    .pin-gallery {
+      margin-top: 4rem;
+    }
+
+    .stack-card {
+      grid-template-columns: 3rem 1fr;
+      min-height: 78vh;
+    }
+
+    .stack-visual,
+    .stack-mark {
+      grid-column: 1 / -1;
+      min-height: 38vh;
+    }
+
+    .perspective-intro h2 {
+      max-width: 13ch;
     }
   }
 
   @media (max-width: 640px) {
-    .home-hero {
-      padding-top: 2.25rem;
+    .hero-inner {
+      padding-top: 8rem;
     }
 
-    .hero-grid {
-      gap: 2.5rem;
-    }
-
-    .hero-copy h1 {
-      font-size: clamp(3rem, 15vw, 4.25rem);
+    .max-w-6xl {
+      font-size: clamp(3.25rem, 15vw, 5rem);
+      line-height: 0.92;
     }
 
     .hero-actions {
+      width: 100%;
       display: grid;
     }
 
-    .hero-actions .btn {
+    .hero-button {
       width: 100%;
     }
 
-    .hero-media,
-    .hero-media :global(img) {
-      min-height: 58vh;
+    .interest-section,
+    .pin-story,
+    .stack-section,
+    .perspective-section {
+      padding-block: 7rem;
     }
 
-    .facts-grid {
-      grid-template-columns: 1fr 1fr;
+    .interest-heading h2 {
+      font-size: clamp(3.1rem, 16vw, 5rem);
     }
 
-    .facts p,
-    .facts p:last-child {
-      min-height: 98px;
-      padding: 1rem 0.75rem;
-      border-right: 0;
-      border-bottom: 1px solid rgba(242, 244, 239, 0.2);
-    }
-
-    .principles {
+    .bento-grid {
       grid-template-columns: 1fr;
-    }
-
-    .principle,
-    .principle--feature {
+      grid-template-rows: none;
       min-height: auto;
+    }
+
+    .bento-cell--land,
+    .bento-cell--care,
+    .bento-cell--harvest,
+    .bento-cell--anthara {
+      grid-column: span 1;
       grid-row: auto;
-      padding: 1.5rem 0;
-      border-right: 0;
-      background: transparent;
+      min-height: 360px;
     }
 
-    .landscape,
-    .landscape :global(img) {
-      min-height: 68vh;
-      height: 68vh;
+    .bento-cell--land {
+      min-height: 560px;
     }
 
-    .landscape::after {
-      background: linear-gradient(0deg, rgba(8, 29, 24, 0.82), transparent 75%);
+    .pin-media,
+    .pin-media :global(img) {
+      min-height: 58vh;
+      height: 58vh;
     }
 
-    .project-image,
-    .anthara-lockup {
-      min-height: 330px;
+    .pin-panel figcaption {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
     }
 
-    .identity-mark {
-      min-height: 310px;
+    .stack-heading {
+      gap: 1.5rem;
+    }
+
+    .stack-card {
+      top: 6rem;
+      grid-template-columns: 1fr;
+      min-height: 82vh;
+      gap: 1.5rem;
+      margin-bottom: 12vh;
+    }
+
+    .stack-number {
+      display: none;
+    }
+
+    .stack-visual,
+    .stack-mark {
+      grid-column: auto;
+      min-height: 34vh;
+    }
+
+    .carousel-shell {
+      min-height: 500px;
+    }
+
+    .founders-line {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      width: 100%;
+      animation: none;
+      overflow-x: auto;
+    }
+
+    .marquee-group[aria-hidden='true'] {
+      display: none;
+    }
+
+    .carousel-slide.is-active {
+      animation: none;
     }
   }
 </style>
