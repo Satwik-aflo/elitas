@@ -1,556 +1,667 @@
 ---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import BiomaMark from '../components/BiomaMark.astro';
-import SunHorizon from '../components/SunHorizon.astro';
+import ElitasMark from '../components/ElitasMark.astro';
 import { whatsappHref, withBase } from '../lib/site';
 
 import entrance from '../assets/elite18/entrance.jpg';
 import gardenResidence from '../assets/elite18/garden-residence.jpg';
+import nightFruit from '../assets/elite18/night-fruit-garden.jpg';
 import antharaLockup from '../assets/anthara/lockup-reverse.png';
+
+const principles = [
+  {
+    title: 'Own the land',
+    body: 'A registered farm plot in a small countryside community, held as a place to return to.',
+  },
+  {
+    title: 'We keep it living',
+    body: 'Resident crews cultivate the gardens through the week, supported by a shared maintenance plan.',
+  },
+  {
+    title: 'You receive the harvest',
+    body: 'Arrive to trees, seasonal produce and the quiet satisfaction of land that is cared for.',
+  },
+];
 ---
 
-<Base title="Bioma — Serviced Farm Plot Communities, Hyderabad">
-  <!-- ============ HERO ============ -->
-  <section class="hero">
+<Base title="Elitas | Serviced Farm Plot Communities near Hyderabad">
+  <section class="home-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-kicker">Land. Life. Legacy.</p>
+        <h1>Space to live beyond the city.</h1>
+        <p class="hero-sub">Serviced farm plot communities shaped for slower weekends, living landscapes and lasting value.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View projects</a>
+          <a
+            class="btn btn-ghost"
+            href={whatsappHref('Hello Elitas, I would like to know more about your projects.')}
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <Image
+          src={entrance}
+          alt="A tree-lined entrance at Elite 18, shown as an artistic impression"
+          widths={[640, 960, 1280, 1800]}
+          sizes="(min-width: 900px) 55vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="Elitas at a glance">
+    <div class="container facts-grid">
+      <p><strong>02</strong><span>Communities</span></p>
+      <p><strong>GO 111</strong><span>Countryside</span></p>
+      <p><strong>Resident</strong><span>Farm crews</span></p>
+      <p><strong>Hyderabad</strong><span>Telangana</span></p>
+    </div>
+  </section>
+
+  <section class="section premise">
     <div class="container">
-      <p class="mono-label hero-topline reveal">
-        Bioma&ensp;·&ensp;Red earth&ensp;·&ensp;Living land
-      </p>
-      <h1 class="display hero-title reveal">
-        Twenty&#8209;five minutes past the city, the soil turns red.
-      </h1>
-      <p class="body-serif hero-sub reveal">
-        Bioma holds land the way a ledger holds a record — plainly, permanently. We
-        build <em>serviced farm plot communities</em> in the G.O.&nbsp;111 countryside of Hyderabad,
-        where resident crews farm every parcel and the harvest is yours.
-      </p>
-      <div class="hero-actions reveal">
-        <a href={withBase('/elite18')} class="btn btn-primary">View Elite 18</a>
-        <a
-          href={whatsappHref('Hello Bioma — I would like to know more about your projects.')}
-          class="btn btn-ghost"
-          target="_blank"
-          rel="noopener"
-        >
-          WhatsApp Enquiry
+      <div class="premise-intro reveal">
+        <h2>Land, cared for.</h2>
+        <p>Ownership should feel alive. Elitas brings the plot, the people and the everyday care together.</p>
+      </div>
+
+      <div class="principles">
+        {principles.map((principle, index) => (
+          <article class:list={['principle', { 'principle--feature': index === 0 }, 'reveal']}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="landscape reveal" aria-label="A living landscape at Elite 18">
+    <Image
+      src={gardenResidence}
+      alt="Garden Residence surrounded by greenery at night, shown as an artistic impression"
+      widths={[640, 1080, 1600, 2127]}
+      sizes="100vw"
+      loading="lazy"
+    />
+    <div class="landscape-copy">
+      <p>A home is optional.</p>
+      <h2>The landscape is essential.</h2>
+    </div>
+  </section>
+
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="projects-head reveal">
+        <h2>Our communities</h2>
+        <p>Two intimate places, each with its own character and a shared respect for the land.</p>
+      </div>
+
+      <div class="projects-grid">
+        <a class="project project--elite reveal" href={withBase('/elite18')}>
+          <div class="project-image">
+            <Image
+              src={nightFruit}
+              alt="Fruit garden at Elite 18 by night, shown as an artistic impression"
+              widths={[640, 960, 1400]}
+              sizes="(min-width: 800px) 58vw, 100vw"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-content">
+            <p class="project-status">Now open</p>
+            <h3>Elite 18</h3>
+            <p>Solitude living across 5.77 acres at Yelkaguda, Moinabad.</p>
+            <span>Explore the project</span>
+          </div>
+        </a>
+
+        <a class="project project--anthara reveal" href={withBase('/anthara')}>
+          <div class="anthara-lockup">
+            <Image
+              src={antharaLockup}
+              alt="Anthara wordmark with its radiating sun symbol"
+              widths={[480, 800, 1200]}
+              sizes="(min-width: 800px) 28vw, 75vw"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-content">
+            <p class="project-status">In preparation</p>
+            <h3>Anthara</h3>
+            <p>A new circle of families in the GO 111 countryside.</p>
+            <span>Preview Anthara</span>
+          </div>
         </a>
       </div>
     </div>
-    <div class="hero-horizon" aria-hidden="true">
-      <SunHorizon />
-    </div>
   </section>
 
-  <!-- ============ DATA STRIP ============ -->
-  <section class="strip" aria-label="Bioma at a glance">
-    <div class="container strip-row">
-      <span class="mono-data">HYDERABAD · TELANGANA</span>
-      <span class="mono-data">G.O. 111 COUNTRYSIDE</span>
-      <span class="mono-data">02 COMMUNITIES</span>
-      <span class="mono-data">RESIDENT FARM CREWS</span>
-    </div>
-  </section>
-
-  <!-- ============ THE PREMISE ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="ledger-head reveal">
-        <span class="mono-label">The premise</span>
-        <span class="mono-label">01 — 03</span>
+  <section class="section identity">
+    <div class="container identity-grid">
+      <div class="identity-mark reveal">
+        <ElitasMark size={240} />
       </div>
-      <h2 class="display display-lg premise-title reveal">
-        Own the land. We keep it alive.
-      </h2>
-      <div class="premise-grid">
-        <article class="premise-item reveal">
-          <p class="mono-data premise-num">01</p>
-          <h3 class="premise-h">The plot</h3>
-          <p class="premise-p">
-            A registered farm plot in a small, gated countryside community. Leave it open, or add
-            a farm house within G.O.&nbsp;111 norms — the law that keeps this landscape low-rise,
-            green and permanent.
-          </p>
-        </article>
-        <article class="premise-item reveal">
-          <p class="mono-data premise-num">02</p>
-          <h3 class="premise-h">The farm</h3>
-          <p class="premise-p">
-            Fruit, vegetable and kitchen gardens are laid out on your land and cultivated
-            year-round by resident crews who live on site — you pay a maintenance fee, they do
-            the farming.
-          </p>
-        </article>
-        <article class="premise-item reveal">
-          <p class="mono-data premise-num">03</p>
-          <h3 class="premise-h">The harvest</h3>
-          <p class="premise-p">
-            You arrive on the weekend to shade, soil and a standing harvest. From tree to table —
-            the luxury of growing your own, without keeping a farmer's hours.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TEXTURE BAND ============ -->
-  <section class="band reveal">
-    <Image
-      src={gardenResidence}
-      alt="The Garden Residence at Elite 18 by night — artistic impression"
-      widths={[640, 1080, 1600, 2127]}
-      sizes="100vw"
-      class="band-img"
-      loading="lazy"
-    />
-    <p class="band-caption mono-data">THE GARDEN RESIDENCE — ELITE 18 · ARTISTIC IMPRESSION</p>
-  </section>
-
-  <!-- ============ PROJECTS ============ -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="ledger-head reveal">
-        <span class="mono-label">The communities</span>
-        <span class="mono-label">Index</span>
-      </div>
-
-      <!-- Elite 18 -->
-      <a href={withBase('/elite18')} class="project reveal">
-        <div class="project-media">
-          <Image
-            src={entrance}
-            alt="Elite 18 entrance avenue — artistic impression"
-            widths={[640, 1080, 1600, 2560]}
-            sizes="(min-width: 900px) 60vw, 100vw"
-            loading="lazy"
-          />
-        </div>
-        <div class="project-info">
-          <p class="mono-data project-num">PROJECT 01 · NOW OPEN</p>
-          <h3 class="display display-md project-name">Elite 18</h3>
-          <p class="project-desc">
-            Solitude living across six acres at Yelkaguda, Moinabad — just you and eighteen
-            families like you.
-          </p>
-          <p class="mono-data project-data">19 PLOTS · 682–1,246 SQ YD · 5.77 ACRES</p>
-          <span class="project-cta mono-data">VIEW PROJECT →</span>
-        </div>
-      </a>
-
-      <!-- Anthara -->
-      <a href={withBase('/anthara')} class="project project--navy reveal">
-        <div class="project-media project-media--lockup">
-          <Image
-            src={antharaLockup}
-            alt="Anthara wordmark with radiating sun mark"
-            widths={[480, 800, 1400]}
-            sizes="(min-width: 900px) 40vw, 80vw"
-            loading="lazy"
-          />
-        </div>
-        <div class="project-info">
-          <p class="mono-data project-num project-num--terracotta">PROJECT 02 · IN PREPARATION</p>
-          <h3 class="display display-md project-name">Anthara</h3>
-          <p class="project-desc project-desc--paper">
-            The next serviced farm plot community. Same red earth, same care — a new circle of
-            families.
-          </p>
-          <span class="project-cta mono-data project-cta--terracotta">COMING SOON →</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ============ THE PEOPLE ============ -->
-  <section class="section people">
-    <div class="container">
-      <div class="ledger-head reveal">
-        <span class="mono-label">The people</span>
-        <span class="mono-label">Est. Hyderabad</span>
-      </div>
-      <div class="people-grid">
-        <div class="people-copy reveal">
-          <h2 class="display display-lg">Built by people who stay.</h2>
-          <p class="body-serif people-p">
-            Bioma is a Hyderabad company founded by <strong>Ramesh Reddy Meda</strong> and
-            <strong>Rajeshwar Reddy Buyyani</strong> — builders whose real estate credibility
-            spans a dozen ventures, from <em>Moonglade</em> and <em>One Downtown</em>
-            to <em>Riveredge Villas</em> and <em>La Paloma</em>.
-          </p>
-          <p class="body-serif people-p">
-            Elite 18 and Anthara are Bioma's first communities, and they are built the way a
-            first thing must be: carefully, on land we know, in the countryside we come from.
-            We put our crews on the land before we put our name on it.
-          </p>
-        </div>
-        <div class="people-aside reveal">
-          <div class="people-card">
-            <p class="mono-label">Founders</p>
-            <p class="people-name">Ramesh Reddy Meda</p>
-            <p class="people-name">Rajeshwar Reddy Buyyani</p>
-            <hr class="rule-soft people-rule" />
-            <p class="mono-label">Ventures</p>
-            <p class="mono-data people-ventures">
-              SKYVEN · MOONGLADE · ONE DOWNTOWN · ELEGANT NIVASA · AUTUMN · LA CASA · RIVEREDGE
-              VILLAS · RIVERA · FLOATILLA · SKYILA · APILA · LA PALOMA
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ G.O. 111 ============ -->
-  <section class="go111">
-    <div class="container go111-inner">
-      <div class="go111-mark reveal" aria-hidden="true">
-        <BiomaMark size={54} dome="var(--terracotta)" line="var(--paper)" />
-      </div>
-      <div class="reveal">
-        <p class="mono-label go111-label">Why G.O. 111 land</p>
-        <p class="go111-quote">
-          One rule governs this countryside: build on no more than a tenth of the land. It is
-          the reason the horizon here will stay a horizon — low, green and quiet. We didn't
-          write the rule. We just build like we mean it.
+      <div class="identity-copy reveal">
+        <h2>An identity built from the land.</h2>
+        <p>
+          The Elitas E is formed from three terraces: a strong foundation, cultivated layers and
+          an open edge that looks forward.
         </p>
+        <a href={withBase('/design-system')}>View the design system</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section partners" id="partners">
+    <div class="container partners-grid">
+      <div class="partners-title reveal">
+        <h2>Experience behind every decision.</h2>
+      </div>
+      <div class="partners-copy reveal">
+        <p>
+          Elitas is led by <strong>Ramesh Reddy Meda</strong> and <strong>Rajeshwar Reddy Buyyani</strong>,
+          bringing experience from E-Infra and MoonGlade into a more personal kind of development.
+        </p>
+        <p class="partners-note">Elite 18 and Anthara are the first Elitas communities.</p>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  /* ---------- Hero ---------- */
-  .hero {
+  .home-hero {
+    min-height: calc(100dvh - 70px);
+    display: grid;
+    align-items: center;
+    padding-block: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    align-items: center;
+    gap: clamp(2.5rem, 7vw, 7rem);
+  }
+
+  .hero-copy {
     position: relative;
-    padding-top: clamp(4rem, 12vh, 8rem);
-    overflow: hidden;
+    z-index: 1;
   }
 
-  .hero-topline {
-    color: var(--laterite);
-    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  .hero-kicker {
+    margin-bottom: 1.25rem;
+    color: var(--accent-ink);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
   }
 
-  .hero-title {
-    font-size: clamp(2.375rem, 1.6rem + 6.2vw, 6rem);
-    max-width: 11.5em;
-    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  .hero-copy h1 {
+    max-width: 9ch;
+    font-size: clamp(3.25rem, 7vw, 7rem);
+    font-weight: 560;
+    letter-spacing: -0.06em;
+    line-height: 0.93;
+    text-wrap: balance;
   }
 
   .hero-sub {
-    margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+    max-width: 31rem;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 1rem + 0.45vw, 1.35rem);
+    line-height: 1.55;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-bottom: clamp(3rem, 8vw, 5rem);
+    margin-top: 2rem;
   }
 
-  /* ---------- Data strip ---------- */
-  .strip {
-    border-bottom: var(--hairline);
-    background: var(--paper-raised);
-  }
-
-  .strip-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 2.5rem;
-    justify-content: space-between;
-    padding-block: 0.9rem;
-  }
-
-  .strip-row .mono-data {
-    letter-spacing: 0.14em;
-    font-size: 0.625rem;
-    color: var(--stone);
-  }
-
-  /* ---------- Premise ---------- */
-  .premise-title {
-    max-width: 13em;
-    margin-bottom: clamp(2.5rem, 6vw, 4rem);
-  }
-
-  .premise-grid {
-    display: grid;
-    gap: 2.5rem;
-  }
-
-  @media (min-width: 760px) {
-    .premise-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(2rem, 4vw, 4rem);
-    }
-  }
-
-  .premise-item {
-    border-top: var(--hairline-soft);
-    padding-top: 1.1rem;
-  }
-
-  .premise-num {
-    color: var(--laterite);
-    margin-bottom: 0.9rem;
-  }
-
-  .premise-h {
-    font-family: var(--font-display);
-    -webkit-text-stroke: max(0.4px, 0.02em) currentColor;
-    font-size: 1.375rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-
-  .premise-p {
-    font-family: var(--font-body);
-    font-size: 0.9375rem;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    text-wrap: pretty;
-  }
-
-  /* ---------- Texture band ---------- */
-  .band {
-    position: relative;
-    border-block: var(--hairline);
-  }
-
-  .band :global(img) {
-    width: 100%;
-    height: clamp(280px, 55vw, 560px);
-    object-fit: cover;
-  }
-
-  /* On wide screens the render shows uncropped, framed like a ledger figure. */
-  @media (min-width: 900px) {
-    .band {
-      width: min(100% - 2 * var(--gutter), var(--container));
-      margin-inline: auto;
-      border: var(--hairline);
-    }
-
-    .band :global(img) {
-      height: auto;
-    }
-  }
-
-  .band-caption {
-    position: absolute;
-    left: var(--gutter);
-    bottom: 0.9rem;
-    color: rgba(243, 237, 226, 0.85);
-    letter-spacing: 0.14em;
-    font-size: 0.5625rem;
-  }
-
-  /* ---------- Projects ---------- */
-  .project {
-    display: grid;
-    text-decoration: none;
-    border: var(--hairline);
-    background: var(--paper-raised);
-    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
-  }
-
-  .project:hover {
-    box-shadow: 6px 6px 0 0 var(--laterite);
-    transform: translate(-2px, -2px);
-  }
-
-  @media (min-width: 900px) {
-    .project {
-      grid-template-columns: 3fr 2fr;
-      align-items: stretch;
-    }
-  }
-
-  .project-media {
+  .hero-media {
+    min-height: min(68vh, 710px);
     overflow: hidden;
-    border-bottom: var(--hairline);
+    background: var(--surface);
   }
 
-  @media (min-width: 900px) {
-    .project-media {
-      border-bottom: 0;
-      border-right: var(--hairline);
-    }
-  }
-
-  .project-media :global(img) {
+  .hero-media :global(img) {
     width: 100%;
     height: 100%;
-    min-height: 240px;
+    min-height: min(68vh, 710px);
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.2, 0.65, 0.3, 1);
   }
 
-  .project:hover .project-media :global(img) {
+  .facts {
+    background: #0c2822;
+    color: #f2f4ef;
+  }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .facts p {
+    display: grid;
+    gap: 0.15rem;
+    min-height: 112px;
+    align-content: center;
+    padding: 1.25rem;
+    border-left: 1px solid rgba(242, 244, 239, 0.2);
+  }
+
+  .facts p:last-child {
+    border-right: 1px solid rgba(242, 244, 239, 0.2);
+  }
+
+  .facts strong {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 650;
+  }
+
+  .facts span {
+    color: rgba(242, 244, 239, 0.72);
+    font-size: 0.75rem;
+  }
+
+  .premise-intro {
+    max-width: 49rem;
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+  }
+
+  .premise-intro h2,
+  .projects-head h2,
+  .identity-copy h2,
+  .partners h2 {
+    font-size: clamp(2.5rem, 5.5vw, 5.25rem);
+    font-weight: 560;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+  }
+
+  .premise-intro p,
+  .projects-head p {
+    max-width: 38rem;
+    margin-top: 1.25rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+  }
+
+  .principles {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    border-top: 1px solid var(--line);
+  }
+
+  .principle {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1rem;
+    min-height: 220px;
+    align-content: start;
+    padding: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .principle--feature {
+    grid-row: span 2;
+    min-height: 440px;
+    align-content: end;
+    background: var(--surface);
+    border-right: 1px solid var(--line);
+  }
+
+  .principle > span {
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+  }
+
+  .principle h3 {
+    font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+    font-weight: 560;
+    letter-spacing: -0.035em;
+  }
+
+  .principle p {
+    max-width: 31rem;
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .landscape {
+    position: relative;
+    min-height: 78vh;
+    overflow: hidden;
+    background: var(--forest-deep);
+  }
+
+  .landscape::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(8, 29, 24, 0.78), transparent 68%);
+  }
+
+  .landscape :global(img) {
+    width: 100%;
+    height: 78vh;
+    object-fit: cover;
+  }
+
+  .landscape-copy {
+    position: absolute;
+    left: max(var(--gutter), calc((100vw - var(--container)) / 2));
+    bottom: clamp(2.5rem, 8vw, 6rem);
+    z-index: 1;
+    color: #f2f4ef;
+  }
+
+  .landscape-copy p {
+    margin-bottom: 0.6rem;
+    color: #c8da72;
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+
+  .landscape-copy h2 {
+    max-width: 10ch;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 560;
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .projects-head {
+    max-width: 52rem;
+    margin-bottom: clamp(3rem, 7vw, 5rem);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .project {
+    display: grid;
+    background: var(--canvas);
+    text-decoration: none;
+  }
+
+  .project-image {
+    min-height: 500px;
+    overflow: hidden;
+  }
+
+  .project-image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project:hover .project-image :global(img) {
     transform: scale(1.025);
   }
 
-  .project-info {
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
+  .project-content {
+    padding: clamp(1.5rem, 4vw, 2.75rem);
   }
 
-  .project-num {
-    color: var(--laterite);
-    letter-spacing: 0.14em;
+  .project-status {
+    margin-bottom: 0.8rem;
+    color: var(--accent-ink);
+    font-size: 0.75rem;
+    font-weight: 650;
   }
 
-  .project-desc {
-    font-family: var(--font-body);
-    font-size: 0.9375rem;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    max-width: 26em;
-    text-wrap: pretty;
+  .project h3 {
+    font-size: clamp(2.25rem, 4vw, 4rem);
+    font-weight: 560;
+    letter-spacing: -0.05em;
   }
 
-  .project-data {
-    color: var(--stone);
+  .project-content > p:not(.project-status) {
+    max-width: 30rem;
+    margin-top: 0.75rem;
+    color: var(--text-muted);
   }
 
-  .project-cta {
-    margin-top: auto;
-    padding-top: 1rem;
-    color: var(--laterite);
-    letter-spacing: 0.12em;
+  .project-content span {
+    display: inline-block;
+    margin-top: 1.5rem;
+    border-bottom: 1px solid currentColor;
+    font-size: 0.75rem;
+    font-weight: 650;
   }
 
-  /* Anthara card */
-  .project--navy {
-    background: var(--navy);
-    border-color: var(--navy);
-    color: var(--paper);
+  .project--anthara {
+    align-content: space-between;
+    background: #1a2445;
+    color: #f2f4ef;
   }
 
-  .project--navy:hover {
-    box-shadow: 6px 6px 0 0 var(--terracotta);
+  .project--anthara .project-status,
+  .project--anthara .project-content span {
+    color: #e3725e;
   }
 
-  .project-media--lockup {
-    display: flex;
+  .project--anthara .project-content > p:not(.project-status) {
+    color: rgba(242, 244, 239, 0.72);
+  }
+
+  .anthara-lockup {
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    padding: 3rem;
+  }
+
+  .anthara-lockup :global(img) {
+    width: min(100%, 300px);
+  }
+
+  .identity {
+    background: var(--surface);
+  }
+
+  .identity-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) 1.2fr;
     align-items: center;
-    justify-content: center;
-    padding: clamp(2rem, 6vw, 3.5rem);
-    border-color: rgba(243, 237, 226, 0.2);
+    gap: clamp(3rem, 10vw, 9rem);
   }
 
-  .project-media--lockup :global(img) {
-    width: min(100%, 420px);
-    height: auto;
-    min-height: 0;
-    object-fit: contain;
-  }
-
-  .project--navy:hover .project-media--lockup :global(img) {
-    transform: none;
-  }
-
-  .project-num--terracotta,
-  .project-cta--terracotta {
-    color: var(--terracotta);
-  }
-
-  .project-desc--paper {
-    color: rgba(243, 237, 226, 0.75);
-  }
-
-  /* ---------- People ---------- */
-  .people-grid {
+  .identity-mark {
+    min-height: 460px;
     display: grid;
-    gap: 2.5rem;
+    place-items: center;
+    color: #14352d;
+    background: #c8da72;
   }
 
-  @media (min-width: 860px) {
-    .people-grid {
-      grid-template-columns: 3fr 2fr;
-      gap: clamp(2.5rem, 6vw, 5rem);
-      align-items: start;
-    }
+  .identity-mark :global(svg) {
+    --mark-cut: #f2f4ef;
+    width: min(65%, 240px);
   }
 
-  .people-copy h2 {
-    max-width: 12em;
-    margin-bottom: 1.75rem;
+  .identity-copy h2 {
+    max-width: 10ch;
   }
 
-  .people-p {
-    margin-bottom: 1.25rem;
-  }
-
-  .people-p strong {
-    font-weight: 600;
-  }
-
-  .people-card {
-    border: var(--hairline);
-    background: var(--paper-raised);
-    padding: clamp(1.5rem, 4vw, 2rem);
-  }
-
-  .people-name {
-    font-family: var(--font-display);
-    -webkit-text-stroke: max(0.4px, 0.02em) currentColor;
-    font-size: 1.25rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-top: 0.6rem;
-  }
-
-  .people-rule {
-    margin-block: 1.25rem;
-  }
-
-  .people-card .mono-data {
-    margin-top: 0.5rem;
-    color: var(--laterite);
-  }
-
-  .people-ventures {
-    line-height: 2;
-    letter-spacing: 0.1em;
-  }
-
-  /* ---------- G.O. 111 ---------- */
-  .go111 {
-    background: var(--field);
-    color: var(--paper);
-    padding-block: clamp(3.5rem, 9vw, 6rem);
-  }
-
-  .go111-inner {
-    display: grid;
-    gap: 2rem;
-  }
-
-  @media (min-width: 760px) {
-    .go111-inner {
-      grid-template-columns: auto 1fr;
-      gap: 3.5rem;
-      align-items: start;
-    }
-  }
-
-  .go111-label {
-    color: rgba(243, 237, 226, 0.7);
-    margin-bottom: 1.25rem;
-  }
-
-  .go111-quote {
+  .identity-copy p {
+    max-width: 35rem;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
     font-family: var(--font-body);
-    font-size: clamp(1.25rem, 1.05rem + 1.4vw, 1.75rem);
+    font-size: 1.2rem;
+  }
+
+  .identity-copy a {
+    display: inline-block;
+    margin-top: 2rem;
+    border-bottom: 1px solid currentColor;
+    font-size: 0.8rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 9vw, 8rem);
+    align-items: start;
+  }
+
+  .partners-title h2 {
+    max-width: 11ch;
+  }
+
+  .partners-copy > p:first-child {
+    max-width: 37rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
     line-height: 1.5;
-    max-width: 30em;
-    text-wrap: pretty;
+  }
+
+  .partners-copy strong {
+    color: var(--text);
+    font-weight: 550;
+  }
+
+  .partners-note {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .home-hero {
+      min-height: auto;
+      padding-top: 3rem;
+    }
+
+    .hero-grid,
+    .identity-grid,
+    .partners-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-copy h1 {
+      max-width: 11ch;
+    }
+
+    .hero-media,
+    .hero-media :global(img) {
+      min-height: 55vh;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-image,
+    .anthara-lockup {
+      min-height: 410px;
+    }
+
+    .identity-mark {
+      min-height: 380px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .home-hero {
+      padding-top: 2.25rem;
+    }
+
+    .hero-grid {
+      gap: 2.5rem;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3rem, 15vw, 4.25rem);
+    }
+
+    .hero-actions {
+      display: grid;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+
+    .hero-media,
+    .hero-media :global(img) {
+      min-height: 58vh;
+    }
+
+    .facts-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .facts p,
+    .facts p:last-child {
+      min-height: 98px;
+      padding: 1rem 0.75rem;
+      border-right: 0;
+      border-bottom: 1px solid rgba(242, 244, 239, 0.2);
+    }
+
+    .principles {
+      grid-template-columns: 1fr;
+    }
+
+    .principle,
+    .principle--feature {
+      min-height: auto;
+      grid-row: auto;
+      padding: 1.5rem 0;
+      border-right: 0;
+      background: transparent;
+    }
+
+    .landscape,
+    .landscape :global(img) {
+      min-height: 68vh;
+      height: 68vh;
+    }
+
+    .landscape::after {
+      background: linear-gradient(0deg, rgba(8, 29, 24, 0.82), transparent 75%);
+    }
+
+    .project-image,
+    .anthara-lockup {
+      min-height: 330px;
+    }
+
+    .identity-mark {
+      min-height: 310px;
+    }
   }
 </style>

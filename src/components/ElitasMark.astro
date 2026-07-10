@@ -1,0 +1,32 @@
+---
+interface Props {
+  size?: number;
+  color?: string;
+  class?: string;
+}
+
+const {
+  size = 32,
+  color = 'currentColor',
+  class: className,
+} = Astro.props;
+---
+
+<!--
+  The Elitas mark combines an E with three cultivated terraces.
+  The open right edge keeps the form directional and future-facing.
+-->
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 48 48"
+  fill="none"
+  aria-hidden="true"
+  class={className}
+>
+  <path
+    d="M6 6H42V14H15V20H35V28H15V34H42V42H6V6Z"
+    fill={color}
+  />
+  <path d="M27 14H42L35 20H20L27 14Z" fill="var(--mark-cut, #c8da72)" />
+</svg>

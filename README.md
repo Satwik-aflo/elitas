@@ -1,41 +1,45 @@
-# Bioma — bioma.co.in
+# Elitas website
 
-Brochure/credibility website for **Bioma**, a Hyderabad company building serviced farm plot
-communities in the G.O. 111 countryside. Projects: **Elite 18** (Yelkaguda, Moinabad) and
-**Anthara** (coming soon).
+The public brand and project website for Elitas, a Hyderabad company creating serviced farm
+plot communities in the GO 111 countryside.
 
-Design direction: *1c "Laterite"* — editorial land-ledger. Ink `#211b16`, laterite `#9e3d20`,
-paper `#f3ede2`; Italiana display, Newsreader body, IBM Plex Mono data labels.
+## Brand system
 
-## Stack
+- Logo: a geometric E formed from a foundation and three cultivated terraces
+- Palette: Forest `#14352D`, Limestone `#F2F4EF`, Leaf `#C8DA72`, Mist `#E7EBE4`
+- Display: Archivo Variable
+- Editorial copy: Newsreader Variable
+- Principles: calm confidence, clear hierarchy, real project imagery, mobile-first layouts
 
-- [Astro](https://astro.build) static site, zero client JS except a scroll-reveal observer
-- Self-hosted fonts via Fontsource
-- Deployed to GitHub Pages via Actions (`.github/workflows/deploy.yml`)
+The public brand reference is available at `/design-system`.
 
 ## Develop
 
 ```sh
 npm install
-npm run dev      # local dev at /bioma base path
-npm run build    # production build to dist/
-npm run preview  # serve the build
+npm run dev
+npm run build
+npm run preview
 ```
 
 ## Pages
 
 | Route | Purpose |
 |---|---|
-| `/` | Bioma company page |
+| `/` | Elitas company and partner page |
 | `/elite18` | Elite 18 project page |
-| `/anthara` | Anthara coming-soon teaser |
-| `/disclaimer` | Marketing disclaimer (draft, pending legal review) |
+| `/anthara` | Anthara preview |
+| `/design-system` | Elitas identity and interface reference |
+| `/disclaimer` | Marketing disclaimer pending legal review |
 
-## Deploying to bioma.co.in later
+## GitHub Pages
 
-Set `DEPLOY_SITE=https://bioma.co.in` and `DEPLOY_BASE=/` at build time (see
-`astro.config.mjs`), add the custom domain in the Pages settings (or move hosting), and point
-DNS at it.
+The workflow at `.github/workflows/deploy.yml` builds and publishes the site on every push to
+`main`. It derives the GitHub Pages base path from the repository name, so the site works from
+any public GitHub repository without hard-coding the final URL.
 
-All imagery is an artistic impression. Farm house construction is optional and subject to
-G.O. 111 norms.
+For a custom domain later, set `DEPLOY_SITE=https://elitas.co.in` and `DEPLOY_BASE=/` during the
+build, then configure the domain in the hosting provider.
+
+All project imagery is an artistic impression. Farm house construction is optional and subject
+to GO 111 norms.

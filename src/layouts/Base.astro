@@ -1,5 +1,4 @@
 ---
-import '@fontsource/italiana';
 import '@fontsource-variable/newsreader';
 import '@fontsource-variable/newsreader/wght-italic.css';
 import '@fontsource/ibm-plex-mono/400.css';
@@ -14,7 +13,7 @@ import { SITE, withBase } from '../lib/site';
 interface Props {
   title: string;
   description?: string;
-  theme?: 'paper' | 'navy';
+  theme?: 'paper' | 'navy' | 'legacy';
   /** Path to an OG image under the site base, e.g. '/og.jpg' */
   ogImage?: string;
 }
@@ -40,18 +39,18 @@ const ogUrl = new URL(withBase(ogImage), Astro.site);
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content={theme === 'navy' ? '#1a2445' : '#f3ede2'} />
+    <meta name="theme-color" content={theme === 'navy' ? '#1a2445' : '#14352d'} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Bioma" />
+    <meta property="og:site_name" content="Elitas" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogUrl} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class:list={[{ 'body--navy': theme === 'navy' }]}>
+  <body class={`body--${theme}`}>
     <a class="skip-link" href="#main">Skip to content</a>
-    <Nav theme={theme} />
+    <Nav theme={theme === 'navy' ? 'navy' : 'paper'} />
     <main id="main">
       <slot />
     </main>

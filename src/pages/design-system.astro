@@ -1,0 +1,334 @@
+---
+import Base from '../layouts/Base.astro';
+import ElitasMark from '../components/ElitasMark.astro';
+import { withBase } from '../lib/site';
+
+const colors = [
+  { name: 'Forest', value: '#14352D', className: 'forest' },
+  { name: 'Limestone', value: '#F2F4EF', className: 'limestone' },
+  { name: 'Leaf', value: '#C8DA72', className: 'leaf' },
+  { name: 'Mist', value: '#E7EBE4', className: 'mist' },
+];
+---
+
+<Base
+  title="Elitas Design System"
+  description="The visual identity, logo, color, typography and interface principles for Elitas."
+>
+  <section class="ds-hero">
+    <div class="container ds-hero-grid">
+      <div>
+        <p class="ds-kicker">Elitas design system</p>
+        <h1>Rooted in land.<br />Built for clarity.</h1>
+      </div>
+      <ElitasMark size={260} />
+    </div>
+  </section>
+
+  <section class="section ds-section">
+    <div class="container">
+      <div class="ds-intro">
+        <h2>The mark</h2>
+        <p>The Elitas E is drawn from three terraces and one strong spine. It represents land, cultivation and long-term stewardship.</p>
+      </div>
+
+      <div class="logo-grid">
+        <div class="logo-panel logo-panel--light">
+          <div class="lockup"><ElitasMark size={80} /><span>Elitas</span></div>
+        </div>
+        <div class="logo-panel logo-panel--dark">
+          <div class="lockup"><ElitasMark size={80} /><span>Elitas</span></div>
+        </div>
+        <div class="logo-panel logo-panel--accent">
+          <ElitasMark size={128} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ds-section colors">
+    <div class="container">
+      <div class="ds-intro">
+        <h2>Color</h2>
+        <p>A cool, nature-led palette avoids familiar real-estate gold and keeps the brand contemporary, calm and recognizable.</p>
+      </div>
+      <div class="color-grid">
+        {colors.map((color) => (
+          <div class:list={['color-swatch', color.className]}>
+            <span>{color.name}</span>
+            <code>{color.value}</code>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section ds-section type-section">
+    <div class="container type-grid">
+      <div class="type-title">
+        <p>Archivo Variable</p>
+        <h2>Quiet confidence.</h2>
+        <p class="alphabet">Aa Bb Cc Dd Ee Ff Gg 012345</p>
+      </div>
+      <div class="type-body">
+        <p>Newsreader Variable</p>
+        <blockquote>Places become meaningful when the land, the people and the everyday care belong together.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ds-section components">
+    <div class="container">
+      <div class="ds-intro">
+        <h2>Interface</h2>
+        <p>Sharp edges, generous spacing and clear actions create a premium experience without decorative excess.</p>
+      </div>
+      <div class="component-row">
+        <a class="btn btn-primary" href={withBase('/elite18')}>Primary action</a>
+        <a class="btn btn-ghost" href={withBase('/')}>Secondary action</a>
+        <div class="sample-link">Text link</div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ds-hero {
+    min-height: calc(100dvh - 70px);
+    display: grid;
+    align-items: center;
+    padding-block: clamp(4rem, 10vw, 8rem);
+    background: #0c2822;
+    color: #f2f4ef;
+  }
+
+  .ds-hero-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: end;
+    gap: 4rem;
+  }
+
+  .ds-kicker {
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+
+  .ds-hero h1 {
+    font-size: clamp(3.25rem, 8vw, 7.5rem);
+    font-weight: 560;
+    letter-spacing: -0.06em;
+    line-height: 0.92;
+  }
+
+  .ds-hero :global(svg) {
+    --mark-cut: var(--accent);
+    justify-self: end;
+    width: min(100%, 260px);
+  }
+
+  .ds-section {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ds-intro {
+    max-width: 48rem;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  }
+
+  .ds-intro h2,
+  .type-title h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 560;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+  }
+
+  .ds-intro p {
+    max-width: 40rem;
+    margin-top: 1.25rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+  }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.65fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .logo-panel {
+    min-height: 330px;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+  }
+
+  .logo-panel--light {
+    background: #f2f4ef;
+    color: #14352d;
+  }
+
+  .logo-panel--dark {
+    background: #14352d;
+    color: #f2f4ef;
+  }
+
+  .logo-panel--accent {
+    background: #c8da72;
+    color: #14352d;
+  }
+
+  .logo-panel--dark :global(svg),
+  .logo-panel--accent :global(svg) {
+    --mark-cut: #c8da72;
+  }
+
+  .logo-panel--accent :global(svg) {
+    --mark-cut: #f2f4ef;
+  }
+
+  .lockup {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .lockup span {
+    font-size: 1.6rem;
+    font-weight: 650;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr;
+    min-height: 420px;
+    border: 1px solid var(--line);
+  }
+
+  .color-swatch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-right: 1px solid rgba(20, 53, 45, 0.2);
+  }
+
+  .color-swatch:last-child {
+    border-right: 0;
+  }
+
+  .color-swatch span {
+    font-weight: 650;
+  }
+
+  .color-swatch code {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .forest { background: #14352d; color: #f2f4ef; }
+  .limestone { background: #f2f4ef; color: #14352d; }
+  .leaf { background: #c8da72; color: #14352d; }
+  .mist { background: #e7ebe4; color: #14352d; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: clamp(3rem, 9vw, 8rem);
+  }
+
+  .type-title > p:first-child,
+  .type-body > p:first-child {
+    margin-bottom: 1.25rem;
+    color: var(--accent-ink);
+    font-size: 0.75rem;
+    font-weight: 650;
+  }
+
+  .alphabet {
+    margin-top: 2rem;
+    color: var(--text-muted);
+  }
+
+  .type-body blockquote {
+    font-family: var(--font-body);
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    line-height: 1.25;
+  }
+
+  .component-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .sample-link {
+    margin-left: 1rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 1px solid currentColor;
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+
+  @media (max-width: 800px) {
+    .ds-hero-grid,
+    .type-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ds-hero :global(svg) {
+      justify-self: start;
+      width: 160px;
+    }
+
+    .logo-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .logo-panel {
+      min-height: 250px;
+    }
+
+    .color-grid {
+      grid-template-columns: 1fr 1fr;
+      min-height: auto;
+    }
+
+    .color-swatch {
+      min-height: 220px;
+      border-bottom: 1px solid rgba(20, 53, 45, 0.2);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .lockup {
+      gap: 0.8rem;
+    }
+
+    .lockup span {
+      font-size: 1.2rem;
+    }
+
+    .color-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .component-row {
+      display: grid;
+    }
+
+    .sample-link {
+      width: max-content;
+      margin: 1rem 0 0;
+    }
+  }
+</style>

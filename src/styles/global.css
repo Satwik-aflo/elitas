@@ -1,41 +1,58 @@
-/* ============================================================
-   BIOMA — design system, direction 1c "Laterite"
-   Editorial land-ledger: ink, rust, hairlines.
-   ============================================================ */
+/* Elitas design system
+   Foundation: cultivated land, architectural clarity, quiet confidence. */
 
 :root {
-  /* Palette — laterite & ink */
-  --ink: #211b16;
-  --ink-soft: #3a342c;
-  --laterite: #9e3d20;
-  --laterite-deep: #7f2f17;
-  --paper: #f3ede2;
-  --paper-raised: #faf6ec;
-  --field: #5c6b49;
-  --terracotta: #e3725e; /* bridge to Anthara */
-  --navy: #1a2445;       /* Anthara ink */
-  --stone: #8d8477;
+  --forest: #14352d;
+  --forest-deep: #0c2822;
+  --forest-soft: #305348;
+  --canvas: #f2f4ef;
+  --surface: #e7ebe4;
+  --surface-strong: #d9dfd6;
+  --text: #16312a;
+  --text-muted: #5d7069;
+  --accent: #c8da72;
+  --accent-ink: #52611c;
+  --line: rgba(20, 53, 45, 0.2);
+  --paper: #f2f4ef;
+  --paper-raised: #f8faf6;
+  --ink: #16312a;
+  --ink-soft: #5d7069;
+  --laterite: #14352d;
+  --laterite-deep: #0c2822;
+  --field: #305348;
+  --terracotta: #e3725e;
+  --stone: #5d7069;
+  --navy: #1a2445;
 
-  /* Type */
-  --font-display: 'Italiana', 'Times New Roman', serif;
-  --font-body: 'Newsreader Variable', Georgia, serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+  --font-display: 'Archivo Variable', system-ui, sans-serif;
   --font-sans: 'Archivo Variable', system-ui, sans-serif;
+  --font-body: 'Newsreader Variable', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
-  /* Rules */
-  --hairline: 1px solid var(--ink);
-  --hairline-soft: 1px solid rgba(33, 27, 22, 0.18);
-
-  /* Rhythm */
-  --space-section: clamp(4.5rem, 12vw, 8.5rem);
-  --gutter: clamp(1.25rem, 5vw, 3rem);
-  --measure: 34em;
-
-  /* Container */
-  --container: 78rem;
+  --hairline: 1px solid var(--text);
+  --hairline-soft: 1px solid var(--line);
+  --space-section: clamp(4.5rem, 10vw, 8.5rem);
+  --gutter: clamp(1.1rem, 4vw, 3.25rem);
+  --measure: 38rem;
+  --container: 82rem;
 }
 
-/* ---------- Reset ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #10241f;
+    --surface: #183029;
+    --surface-strong: #213c34;
+    --text: #edf1ea;
+    --text-muted: #b0bdb6;
+    --line: rgba(237, 241, 234, 0.2);
+    --paper-raised: #183029;
+    --forest: #dce5da;
+    --forest-deep: #f2f4ef;
+    --forest-soft: #a8bbaa;
+    --accent-ink: #c8da72;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -45,24 +62,34 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  scroll-padding-top: 84px;
 }
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.0625rem);
-  line-height: 1.65;
-  font-optical-sizing: auto;
+  overflow-x: hidden;
+  background: var(--canvas);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+body.body--legacy {
+  --forest: #14352d;
+  --forest-deep: #0c2822;
+  --forest-soft: #305348;
+  --canvas: #f2f4ef;
+  --surface: #e7ebe4;
+  --surface-strong: #d9dfd6;
+  --text: #16312a;
+  --text-muted: #5d7069;
+  --accent-ink: #52611c;
+  --line: rgba(20, 53, 45, 0.2);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 img,
@@ -93,76 +120,70 @@ button {
 }
 
 ::selection {
-  background: var(--laterite);
-  color: var(--paper);
+  background: var(--accent);
+  color: #10241f;
 }
 
-/* ---------- Typography ---------- */
 .display {
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.08;
+  font-weight: 560;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
   text-wrap: balance;
-  /* Italiana ships only at 400 and reads hairline-thin at display sizes;
-     a scaled text-stroke gives it real weight. */
-  -webkit-text-stroke: max(0.5px, 0.022em) currentColor;
 }
 
 .display-xl {
-  font-size: clamp(2.375rem, 2rem + 5.4vw, 5.5rem);
+  font-size: clamp(3rem, 8vw, 7rem);
 }
 
 .display-lg {
-  font-size: clamp(1.9rem, 1.4rem + 3.4vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 4.75rem);
 }
 
 .display-md {
-  font-size: clamp(1.5rem, 1.25rem + 1.8vw, 2.375rem);
+  font-size: clamp(1.75rem, 3vw, 3rem);
 }
 
 .body-serif {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);
-  line-height: 1.68;
-  color: var(--ink-soft);
   max-width: var(--measure);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
+  line-height: 1.68;
   text-wrap: pretty;
 }
 
 .body-serif em {
-  font-style: italic;
-  color: var(--laterite);
+  color: var(--text);
 }
 
-.mono-label {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
-
+.mono-label,
 .mono-data {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  font-weight: 400;
   letter-spacing: 0.08em;
-  color: var(--ink-soft);
+}
+
+.mono-label {
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.mono-data {
+  color: var(--text-muted);
 }
 
 .caption-sans {
   font-family: var(--font-sans);
-  font-size: 0.625rem;
-  line-height: 1.6;
-  color: var(--stone);
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
 
-/* ---------- Layout primitives ---------- */
 .container {
-  width: min(100% - 2 * var(--gutter), var(--container));
+  width: min(calc(100% - 2 * var(--gutter)), var(--container));
   margin-inline: auto;
 }
 
@@ -170,83 +191,81 @@ button {
   padding-block: var(--space-section);
 }
 
-.rule {
-  border: 0;
-  border-top: var(--hairline);
-  margin: 0;
-}
-
+.rule,
 .rule-soft {
-  border: 0;
-  border-top: var(--hairline-soft);
   margin: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
 }
 
-/* Ledger header: mono label sitting on a hairline */
 .ledger-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  border-top: var(--hairline);
-  padding-top: 0.75rem;
   margin-bottom: clamp(1.75rem, 4vw, 3rem);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
 }
 
-/* ---------- Buttons ---------- */
 .btn {
+  min-height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6em;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0.95rem 1.4rem;
+  gap: 0.65rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--forest);
   border-radius: 0;
-  transition: background-color 0.18s ease, color 0.18s ease;
-  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-primary {
-  background: var(--laterite);
-  color: var(--paper);
-  border: 1px solid var(--laterite);
+  background: var(--forest);
+  color: var(--canvas);
 }
 
 .btn-primary:hover {
-  background: var(--laterite-deep);
-  border-color: var(--laterite-deep);
+  background: var(--forest-deep);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--ink);
+  color: var(--text);
 }
 
 .btn-ghost:hover {
-  background: rgba(33, 27, 22, 0.06);
+  background: var(--surface);
 }
 
 .btn-ghost--paper {
   color: var(--paper);
-  border-color: rgba(243, 237, 226, 0.55);
+  border-color: rgba(242, 244, 239, 0.55);
 }
 
 .btn-ghost--paper:hover {
-  background: rgba(243, 237, 226, 0.1);
+  background: rgba(242, 244, 239, 0.1);
 }
 
-/* ---------- Reveal on scroll ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.65, 0.3, 1),
-    transform 0.7s cubic-bezier(0.2, 0.65, 0.3, 1);
+  transform: translateY(18px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.is-visible {
@@ -254,35 +273,56 @@ button {
   transform: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-/* ---------- Focus ---------- */
 :focus-visible {
-  outline: 2px solid var(--laterite);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* ---------- Skip link ---------- */
 .skip-link {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 0.75rem 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--forest);
+  color: var(--canvas);
+  font-family: var(--font-sans);
+  font-weight: 650;
 }
 
 .skip-link:focus {
   left: 0;
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding-block: clamp(3.75rem, 16vw, 5.5rem);
+  }
+
+  .ledger-head {
+    align-items: flex-start;
+  }
+
+  .btn {
+    min-height: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
